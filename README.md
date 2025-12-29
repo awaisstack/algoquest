@@ -1,36 +1,116 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# AlgoQuest 🛡️
 
-## Getting Started
+### **From zero to FAANG-ready in 28 game-changing weeks.**
 
-First, run the development server:
+![AlgoQuest Hero](https://github.com/awaisstack/algoquest/assets/placeholder/hero.png)
+*(Replace this link with a screenshot of your landing page in the repo or upload one to the issues tab and link it)*
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+> **AlgoQuest** is a gamified, structured learning platform designed to take aspiring engineers from "tutorial hell" to algorithmic mastery. No efficient paths, no distractions—just a 28-week clear roadmap to your dream engineering career.
+
+---
+
+## 🚀 Features
+
+### 📅 **Structured 28-Week Roadmap**
+Forget the chaos of random YouTube videos. We guide you day-by-day:
+- **Weeks 0-4:** The Fundamentals (Big O, Arrays, Strings)
+- **Weeks 5-14:** Core Data Structures (Trees, Graphs, DP)
+- **Weeks 15-28:** Advanced Patterns & System Design
+
+### 🎮 **Gamified Progression**
+Learning is hard. We make it addictive.
+- **Earn XP** for every video watched and problem solved.
+- **Maintain Streaks** to build discipline.
+- **Unlock Achievements** like "Weekend Warrior" and "Early Bird."
+
+### 📝 **Smart Lecture Notes** *(New!)*
+Don't just watch—understand.
+- **Rich Markdown Support**: Beautifully formatted summaries next to every lecture.
+- **LaTeX Integration**: Complex math formulas rendered perfectly ($$T(n) = O(\log n)$$).
+- **Code Blocks**: Syntax-highlighted snippets for quick reference.
+
+### ⚔️ **Curated Resources**
+We've filtered the noise.
+- Best-in-class lectures from **MIT (OpenCourseWare)**, **Abdul Bari**, and top industry engineers.
+- Carefully selected **LeetCode** problems matched to your daily topic.
+
+---
+
+## 🛠️ Tech Stack
+
+Built with the cutting-edge **Next.js 14** stack for speed, scalability, and developer experience.
+
+- **Framework**: [Next.js 14](https://nextjs.org/) (App Router)
+- **Language**: [TypeScript](https://www.typescriptlang.org/)
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
+- **Animations**: [Framer Motion](https://www.framer.com/motion/)
+- **Backend & Auth**: [Supabase](https://supabase.com/)
+- **Database**: PostgreSQL
+- **Markdown Rendering**: `react-markdown` + `remark-gfm` + `rehype-katex`
+
+---
+
+## 📸 Screenshots
+
+| Landing Page | Dashboard |
+|:---:|:---:|
+| ![Landing](Landing_Image_Link_Here) | ![Dashboard](Dashboard_Image_Link_Here) |
+
+*(Add actual screenshot links here after pushing images to your repo)*
+
+---
+
+## ⚡ Getting Started
+
+### Prerequisites
+- Node.js 18+
+- npm or pnpm
+
+### Installation
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/awaisstack/algoquest.git
+   cd algoquest
+   ```
+
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
+
+3. **Set up Environment Variables**
+   Create a `.env.local` file in the root directory:
+   ```env
+   NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
+   NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
+   ```
+
+4. **Run the development server**
+   ```bash
+   npm run dev
+   ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🤝 Contributing
 
-## Learn More
+We welcome contributions! Whether it's adding new problems, improving lecture notes, or fixing bugs:
 
-To learn more about Next.js, take a look at the following resources:
+1. Fork the project.
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`).
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`).
+4. Push to the branch (`git push origin feature/AmazingFeature`).
+5. Open a Pull Request.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🛡️ License
 
-## Deploy on Vercel
+Distributed under the MIT License. See `LICENSE` for more information.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Built with ❤️ for Builders.
