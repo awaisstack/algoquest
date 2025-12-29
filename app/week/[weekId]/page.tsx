@@ -3,6 +3,8 @@
 import { useParams, useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 import { useProgress } from '@/lib/progress-context';
 import { curriculum, ACHIEVEMENTS } from '@/data/curriculum';
 
@@ -23,6 +25,7 @@ export default function WeekPage() {
   const week = curriculum.find(w => w.weekNumber === weekId);
   const [selectedDay, setSelectedDay] = useState(1);
   const [videoModal, setVideoModal] = useState<{ url: string; title: string } | null>(null);
+  const [summaryModal, setSummaryModal] = useState<{ title: string; content: string } | null>(null);
 
   if (!week) {
     return (
@@ -37,6 +40,7 @@ export default function WeekPage() {
       </div>
     );
   }
+
 
   const currentDay = week.days.find(d => d.dayNumber === selectedDay) || week.days[0];
 
@@ -442,7 +446,30 @@ export default function WeekPage() {
                               {resource.type === 'concept' ? '📚' : resource.type === 'guide' ? '🛠️' : '▶️'}
                             </span>
                             <div>
-                              <div style={{ fontSize: '0.875rem', fontWeight: 600, color: '#000' }}>{resource.title}</div>
+                              <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                                <div style={{ fontSize: '0.875rem', fontWeight: 600, color: '#000' }}>{resource.title}</div>
+                                {resource.summary && (
+                                  <button
+                                    onClick={() => setSummaryModal({ title: resource.title, content: resource.summary! })}
+                                    style={{
+                                      fontSize: '0.75rem',
+                                      color: '#fff',
+                                      background: '#000',
+                                      padding: '4px 10px',
+                                      borderRadius: '4px',
+                                      border: '1px solid #000',
+                                      cursor: 'pointer',
+                                      fontWeight: 600,
+                                      display: 'flex',
+                                      alignItems: 'center',
+                                      gap: '4px',
+                                      boxShadow: '2px 2px 0px rgba(0,0,0,0.2)'
+                                    }}
+                                  >
+                                    <span>📝</span> Lecture Notes
+                                  </button>
+                                )}
+                              </div>
                               <div style={{ fontSize: '0.75rem', color: '#000', fontWeight: 500 }}>{resource.type.charAt(0).toUpperCase() + resource.type.slice(1)} • {resource.duration}</div>
                             </div>
                           </div>
@@ -679,6 +706,110 @@ export default function WeekPage() {
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
                 />
+              </div>
+            </div>
+          </div>
+        )
+      }
+
+      {/* Summary Modal */}
+      {
+        summaryModal && (
+          <div
+            onClick={() => setSummaryModal(null)}
+            style={{
+              position: 'fixed',
+              inset: 0,
+              background: 'rgba(0, 0, 0, 0.75)',
+              backdropFilter: 'blur(8px)',
+              WebkitBackdropFilter: 'blur(8px)',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              zIndex: 1000,
+              padding: 'var(--space-6)',
+              cursor: 'pointer'
+            }}
+          >
+            <div
+              onClick={(e) => e.stopPropagation()}
+              style={{
+                width: '100%',
+                maxWidth: '800px',
+                maxHeight: '90vh',
+                background: 'var(--bg-secondary)',
+                borderRadius: 'var(--radius-lg)',
+                overflow: 'hidden',
+                cursor: 'default',
+                display: 'flex',
+                flexDirection: 'column'
+              }}
+            >
+              <div style={{
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'center',
+                padding: 'var(--space-4) var(--space-5)',
+                borderBottom: '1px solid var(--border-primary)',
+                background: '#fff'
+              }}>
+                <h3 style={{
+                  fontSize: '1rem',
+                  fontWeight: 700,
+                  color: 'var(--text-primary)'
+                }}>{summaryModal.title} - Summary</h3>
+                <button
+                  onClick={() => setSummaryModal(null)}
+                  style={{
+                    background: 'none',
+                    border: 'none',
+                    color: 'var(--text-secondary)',
+                    cursor: 'pointer',
+                    fontSize: '1.25rem',
+                    padding: 'var(--space-2)'
+                  }}
+                >×</button>
+              </div>
+              <div style={{
+                padding: 'var(--space-6)',
+                overflowY: 'auto',
+                fontSize: '0.925rem',
+                lineHeight: 1.6,
+                color: 'var(--text-primary)',
+                background: '#f9f9f9',
+                fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif'
+              }}>
+                <ReactMarkdown
+                  remarkPlugins={[remarkGfm]}
+                  components={{
+                    h1: ({ node, ...props }) => <h1 style={{ fontSize: '1.5rem', fontWeight: 800, marginTop: '24px', marginBottom: '16px', borderBottom: '2px solid #e0e0e0', paddingBottom: '8px', color: '#000' }} {...props} />,
+                    h2: ({ node, ...props }) => <h2 style={{ fontSize: '1.25rem', fontWeight: 700, marginTop: '20px', marginBottom: '12px', color: '#000' }} {...props} />,
+                    h3: ({ node, ...props }) => <h3 style={{ fontSize: '1.1rem', fontWeight: 600, marginTop: '16px', marginBottom: '8px', color: '#000' }} {...props} />,
+                    p: ({ node, ...props }) => <p style={{ marginBottom: '16px', color: '#333' }} {...props} />,
+                    ul: ({ node, ...props }) => <ul style={{ paddingLeft: '24px', marginBottom: '16px', color: '#333' }} {...props} />,
+                    li: ({ node, ...props }) => <li style={{ marginBottom: '8px' }} {...props} />,
+                    strong: ({ node, ...props }) => <strong style={{ fontWeight: 700, color: '#000' }} {...props} />,
+                    code: ({ node, inline, className, children, ...props }: any) => {
+                      return !inline ? (
+                        <div style={{ background: '#1a1a1a', color: '#fff', padding: '16px', borderRadius: '8px', marginBottom: '16px', overflowX: 'auto', border: '1px solid #333' }}>
+                          <code style={{ fontFamily: 'Consolas, Monaco, monospace', fontSize: '0.875rem' }} {...props}>
+                            {children}
+                          </code>
+                        </div>
+                      ) : (
+                        <code style={{ background: '#e5e5e5', padding: '2px 6px', borderRadius: '4px', fontFamily: 'Consolas, Monaco, monospace', fontSize: '0.9em', fontWeight: 600, color: '#000' }} {...props}>
+                          {children}
+                        </code>
+                      );
+                    },
+                    table: ({ node, ...props }) => <table style={{ width: '100%', borderCollapse: 'collapse', marginBottom: '16px' }} {...props} />,
+                    th: ({ node, ...props }) => <th style={{ border: '1px solid #ddd', padding: '8px', background: '#f0f0f0', fontWeight: 700 }} {...props} />,
+                    td: ({ node, ...props }) => <td style={{ border: '1px solid #ddd', padding: '8px' }} {...props} />,
+                    blockquote: ({ node, ...props }) => <blockquote style={{ borderLeft: '4px solid #000', paddingLeft: '16px', color: '#666', fontStyle: 'italic', marginBottom: '16px' }} {...props} />
+                  }}
+                >
+                  {summaryModal.content}
+                </ReactMarkdown>
               </div>
             </div>
           </div>

@@ -18,6 +18,7 @@ export interface Resource {
     url: string;
     type: 'concept' | 'guide' | 'example';
     duration?: string;
+    summary?: string;
 }
 
 export interface Topic {
@@ -220,7 +221,207 @@ export const curriculum: Week[] = [
                         id: 'time-complexity-1', title: 'Time Complexity Basics', description: 'Introduction to Algorithm Analysis',
                         resources: [
                             { id: 'res-tc-1', title: 'Analysis of Algorithms (Abdul Bari)', url: VIDEOS.bigOTheory, type: 'concept', duration: '18:00' },
-                            { id: 'res-tc-mit-1', title: 'Algorithmic Thinking (MIT)', url: VIDEOS.mitComplexity1, type: 'concept', duration: '53:00' }
+                            {
+                                id: 'res-tc-mit-1', title: 'Algorithmic Thinking (MIT)', url: VIDEOS.mitComplexity1, type: 'concept', duration: '53:00', summary: `# 1 — Big picture: what this lecture is about and why it matters
+
+The lecture explains how to **measure the efficiency of algorithms** — mostly time efficiency (how long an algorithm takes) and sometimes space efficiency (how much memory it uses). The goal is not to measure exact times but to understand how running time grows as input size grows. That lets you compare algorithms in a machine-independent way.
+
+**Key takeaways up front:**
+- We usually measure cost as a function of input size **n** (e.g., length of a list).
+- We care about **order of growth** — the dominant behavior as n → large.
+- **Big-O notation** describes an upper bound on that growth (worst-case focus).
+- Small implementation details and constant factors are ignored in Big-O.
+
+# 2 — Two naive ways to measure time (and their problems)
+
+**(A) Wall-clock timing.** Run code and use a timer. Problems:
+- Depends on the machine, OS, background load.
+- Depends on micro implementation details (for vs while, temporary variables, language speed).
+- Not reliable for predicting behavior on much larger inputs.
+
+**(B) Count primitive operations.** Count comparisons, assignments, arithmetic operations. Better: machine-independent, tied to algorithm. Remaining problem: small implementation changes change the exact count (3n vs 4n). We remove these small differences using asymptotic analysis.
+
+# 3 — Orders of growth and asymptotics (intuitive)
+
+**Order-of-growth (Big-O)** focuses on the term that increases fastest as n grows. Example:
+- **3n + 2** → dominated by n → write **O(n)** (linear).
+- **n^2 + 100n + 7** → dominated by n^2 → **O(n^2)** (quadratic).
+- **n log n** sits between O(n) and O(n^2).
+
+**Why ignore constants?** Because we care how running time scales for very large inputs; constants don’t change the class.
+
+# 4 — Formal, practical definition (short)
+
+A function T(n) is **O(f(n))** if there exist constants C > 0 and n0 such that for all n >= n0, T(n) <= C * f(n).
+
+Practically: If T(n) behaves like some polynomial, exponential, log, etc., we name that class.
+
+# 5 — The basic complexity classes (intuition + common examples)
+
+- **O(1)** — constant time. Example: read element a[0].
+- **O(log n)** — logarithmic. Example: binary search.
+- **O(n)** — linear. Example: single loop over list.
+- **O(n log n)** — log-linear. Example: efficient sorts (merge sort, heapsort).
+- **O(n^2)** — quadratic. Example: naive nested loops comparing every pair.
+- **O(2^n)** — exponential. Example: naive recursive Fibonacci.
+- **O(n!)** — factorial (very rare; extremely expensive).
+
+# 6 — Rules you’ll use when reading code
+
+- **Law of addition**: Sequence of steps — take the dominant (largest) term.
+  - Example: If one part is O(n) and another O(n^2), whole is O(n^2).
+
+- **Law of multiplication**: Nested operations multiply.
+  - Example: Outer loop n times, inner loop n times → O(n * n) = O(n^2).
+
+- **Ignore constants and lower-order terms.**
+
+- **For worst/average/best cases**: Big-O usually denotes worst-case complexity unless otherwise stated.
+
+# 7 — Worked examples (step-by-step, Python)
+
+I present small code, count operations in plain language, then extract the Big-O.
+
+### Example 1 — Sum integers 0..x (linear)
+\`\`\`python
+def sum_to_x(x):
+    total = 0            # 1 operation (assignment)
+    for i in range(x+1): # loop body executes x+1 times
+        total += i       # 2 primitive ops: add and assign
+    return total         # 1 op
+\`\`\`
+**Operation count (rough):** 1 + (x+1)*2 + 1 = 2x + 4 → dominant term 2x → **O(x)**.
+
+**Numeric check:**
+- If x = 10, count ≈ 2*10 + 4 = 24.
+- If x = 100, count ≈ 2*100 + 4 = 204.
+Doubling x approximately doubles time → linear.
+
+### Example 2 — Linear search (best/average/worst)
+\`\`\`python
+def linear_search(L, e):
+    for i in range(len(L)):
+        if L[i] == e:
+            return True
+    return False
+\`\`\`
+- **Best case**: e is at L[0] → 1 comparison → **O(1)**.
+- **Average case**: ~n/2 comparisons → **O(n)**.
+- **Worst case**: e not in list or at end → n comparisons → **O(n)**.
+
+### Example 3 — Nested loop: check intersection (quadratic)
+\`\`\`python
+def intersection(L1, L2):
+    result = []
+    for x in L1:
+        for y in L2:
+            if x == y:
+                result.append(x)
+    return result
+\`\`\`
+- **Outer loop**: len(L1) times.
+- **Inner loop**: len(L2) times per outer iteration.
+- If sizes are both n, complexity ≈ O(n * n) = **O(n^2)**.
+
+### Example 4 — Binary search (logarithmic)
+\`\`\`python
+def binary_search(A, target):
+    lo, hi = 0, len(A) - 1
+    while lo <= hi:
+        mid = (lo + hi) // 2
+        if A[mid] == target: return True
+        if A[mid] < target: lo = mid + 1
+        else: hi = mid - 1
+    return False
+\`\`\`
+**Why O(log n)?**
+Each iteration roughly halves the remaining search interval. After k steps, remaining interval size ≈ n / 2^k.
+Stop when n / 2^k <= 1 → 2^k >= n → k >= log2(n). So number of iterations = **O(log n)**.
+
+### Example 5 — Merge sort sketch (n log n)
+Merge sort divides array into halves recursively, sorts halves, then merges.
+**Recurrence:** T(n) = 2 T(n/2) + O(n).
+**Solution:** T(n) = **O(n log n)**.
+
+### Example 6 — Exponential: naive Fibonacci
+\`\`\`python
+def fib(n):
+    if n <= 1:
+        return n
+    return fib(n-1) + fib(n-2)
+\`\`\`
+**Recurrence:** T(n) ≈ T(n-1) + T(n-2) + O(1) → growth ≈ O(ϕ^n) → **O(2^n)**. Very expensive.
+
+# 8 — How to convert code on slides to Big-O quickly
+
+If a slide flashes a snippet, use this checklist:
+1. **Identify input size variable(s)** — n is usually len(list) or n.
+2. **Look for loops**:
+   - Single loop over n → **O(n)**.
+   - Nested loop where inner depends on n → multiply → **O(n^2)**.
+3. **Look for divide-and-conquer**:
+   - If split into halves → **O(log n)** or **O(n log n)**.
+4. **Look for recursion**:
+   - Write recurrence T(n) = a*T(n/b) + work.
+5. **Ignore constants** — 3n + 5 → O(n).
+
+# 9 — Worked exercise: analyze code
+
+### Problem A
+\`\`\`python
+for i in range(n):
+    for j in range(10):
+        print(i, j)
+\`\`\`
+- Inner loop is 10 iterations (constant) → O(1).
+- Outer loop runs n times → total n * O(1) = **O(n)**.
+
+### Problem B
+\`\`\`python
+for i in range(n):
+    j = i
+    while j > 0:
+        j = j // 2
+\`\`\`
+- Inner while halves j each time → O(log i).
+- Sum across i from 0..n → **O(n log n)**.
+
+### Problem C
+\`\`\`python
+def foo(A):
+    for i in range(len(A)):
+        for j in range(i):
+            print(A[i], A[j])
+\`\`\`
+- Inner loop runs i times; total work = sum of i = n*(n-1)/2 = **O(n^2)**.
+
+# 10 — Space vs Time and trade-offs
+
+Sometimes you can trade memory for speed (e.g., memoization).
+**Example:** naive fib is O(2^n) time; with memoization it becomes O(n) time and O(n) extra space.
+
+# 11 — Common misunderstandings corrected
+
+- **“If there’s an if inside a loop, complexity becomes worse.”** — Not necessarily. It depends on what's inside.
+- **“Sorted lists always reduce complexity.”** — Only if you use an algorithm that works on sorted data (like binary search).
+- **“Log n is tiny — like constant.”** — Log grows slowly but it is **not** constant. For very large n, it matters.
+
+# 12 — Practical strategies
+
+- **Use playback speed controls:** slow to 0.75x.
+- **Pause and copy code:** Run it yourself.
+- **Annotate each line:** Write O(1) or O(n) next to it.
+- **Practice with small values:** Trace the execution manually.
+
+| Complexity | Name | Intuition (if n→large) | Example |
+|---|---|---|---|
+| **O(1)** | Constant | no change | access a[i] |
+| **O(log n)** | Logarithmic | shrinks by factor | binary search |
+| **O(n)** | Linear | grows proportionally | single loop |
+| **O(n log n)** | Log-Linear | log factor per linear | merge sort |
+| **O(n^2)** | Quadratic | nested loops | pairwise |
+| **O(2^n)** | Exponential | doubles each step | naive fib |
+` }
                         ],
                         problems: []
                     }
