@@ -2,8 +2,6 @@
 
 ### **From zero to FAANG-ready in 28 game-changing weeks.**
 
-![AlgoQuest Hero](https://github.com/awaisstack/algoquest/assets/placeholder/hero.png)
-*(Replace this link with a screenshot of your landing page in the repo or upload one to the issues tab and link it)*
 
 > **AlgoQuest** is a gamified, structured learning platform designed to take aspiring engineers from "tutorial hell" to algorithmic mastery. No efficient paths, no distractions—just a 28-week clear roadmap to your dream engineering career.
 
