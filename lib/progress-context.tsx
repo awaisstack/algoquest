@@ -81,7 +81,7 @@ export function ProgressProvider({ children }: { children: React.ReactNode }) {
                 }
                 return prev;
             });
-        }, 4000);
+        }, 8000);
 
         // We use onAuthStateChange as the SINGLE source of truth
         // This handles both initial load (INITIAL_SESSION) and subsequent changes
@@ -115,7 +115,7 @@ export function ProgressProvider({ children }: { children: React.ReactNode }) {
                         .single();
 
                     const timeoutPromise = new Promise((_, reject) =>
-                        setTimeout(() => reject(new Error('Timeout')), 2000)
+                        setTimeout(() => reject(new Error('Timeout')), 15000)
                     );
 
                     let data = null;
