@@ -402,9 +402,11 @@ Often, we can make code FASTER (Time) by using MORE MEMORY (Space).
 2.  **Drop the constants.** \`2n\` is just \`O(n)\`.
 3.  **Worst Case Matters.** We prepare for the apocalypse (biggest inputs).
 4.  **Avoid Nested Loops.** \`O(n^2)\` is the enemy of scale.`
-                            }
                         ],
-                        problems: []
+                        problems: [
+                            { id: 'bigo-analysis-1', title: 'Find the Big-O (Warmup)', difficulty: 'easy', leetcodeId: 0, leetcodeUrl: '', patterns: ['complexity-analysis'] },
+                            { id: 'two-sum-prereq', title: 'Two Sum', difficulty: 'easy', leetcodeId: 1, leetcodeUrl: 'https://leetcode.com/problems/two-sum/', patterns: ['array', 'hashmap'] }
+                        ]
                     }
                 ]
             },
@@ -420,7 +422,10 @@ Often, we can make code FASTER (Time) by using MORE MEMORY (Space).
                             { id: 'res-tc-2', title: 'Big O Notation (NeetCode)', url: VIDEOS.bigO, type: 'guide', duration: '12:00' },
                             { id: 'res-tc-mit-2', title: 'Models of Computation (MIT)', url: VIDEOS.mitComplexity2, type: 'concept', duration: '49:00' }
                         ],
-                        problems: []
+                        problems: [
+                            { id: 'richest-customer', title: 'Richest Customer Wealth', difficulty: 'easy', leetcodeId: 1672, leetcodeUrl: 'https://leetcode.com/problems/richest-customer-wealth/', patterns: ['array'] },
+                            { id: 'num-good-pairs', title: 'Number of Good Pairs', difficulty: 'easy', leetcodeId: 1512, leetcodeUrl: 'https://leetcode.com/problems/number-of-good-pairs/', patterns: ['array', 'hashmap'] }
+                        ]
                     }
                 ]
             },
@@ -431,7 +436,7 @@ Often, we can make code FASTER (Time) by using MORE MEMORY (Space).
                 goals: ['Understand Array memory layout', 'Master Hash Map lookups', 'Analyze time/space complexity'],
                 topics: [
                     {
-                        id: 'arrays-101', title: 'Array Components', description: 'Static vs Dynamic Arrays',
+                        id: 'arrays-101', title: 'Arrays & Hash Tables', description: 'Static vs Dynamic Arrays + Hash Table Lookups',
                         resources: [
                             { id: 'res-arr-1', title: 'Design Dynamic Array (NeetCode)', url: VIDEOS.arrayTheory, type: 'concept', duration: '15:00' },
                             { id: 'res-arr-2', title: 'Array Basics', url: VIDEOS.arrayBasics, type: 'guide', duration: '10:00' },
@@ -454,7 +459,8 @@ Often, we can make code FASTER (Time) by using MORE MEMORY (Space).
                     {
                         id: 'two-pointers-basics', title: 'Two Pointers Basics', description: 'Introduction to two-pointer technique',
                         resources: [
-                            { id: 'res-tp-1', title: 'Two Pointers Guided Simplification', url: VIDEOS.twoPointers, type: 'guide', duration: '10:00' }
+                            { id: 'res-tp-1', title: 'Two Pointers Guided Simplification', url: VIDEOS.twoPointers, type: 'guide', duration: '10:00' },
+                            { id: 'res-tp-2', title: 'Valid Palindrome (NeetCode)', url: VIDEOS.stringManipulation, type: 'example', duration: '8:00' }
                         ],
                         problems: [
                             { id: 'sorted-squares', title: 'Squares of a Sorted Array', difficulty: 'easy', leetcodeId: 977, leetcodeUrl: 'https://leetcode.com/problems/squares-of-a-sorted-array/', patterns: ['two-pointers'] },
@@ -472,12 +478,14 @@ Often, we can make code FASTER (Time) by using MORE MEMORY (Space).
                     {
                         id: 'll-basics', title: 'Linked List Anatomy', description: 'Head, Tail, and Pointer logic',
                         resources: [
-                            { id: 'res-ll-1', title: 'Linked List Introduction', url: VIDEOS.linkedListIntro, type: 'concept', duration: '12:00' }
+                            { id: 'res-ll-1', title: 'Linked List Introduction', url: VIDEOS.linkedListIntro, type: 'concept', duration: '12:00' },
+                            { id: 'res-ll-2', title: 'Linked List Theory (William Fiset)', url: VIDEOS.linkedListTheory, type: 'concept', duration: '18:00' }
                         ],
                         problems: [
                             { id: 'reverse-ll', title: 'Reverse Linked List', difficulty: 'easy', leetcodeId: 206, leetcodeUrl: 'https://leetcode.com/problems/reverse-linked-list/', patterns: ['linked-list'] },
                             { id: 'merge-sorted', title: 'Merge Two Sorted Lists', difficulty: 'easy', leetcodeId: 21, leetcodeUrl: 'https://leetcode.com/problems/merge-two-sorted-lists/', patterns: ['linked-list'] },
-                            { id: 'delete-node', title: 'Delete Node in a Linked List', difficulty: 'easy', leetcodeId: 237, leetcodeUrl: 'https://leetcode.com/problems/delete-node-in-a-linked-list/', patterns: ['linked-list'] }
+                            { id: 'delete-node', title: 'Delete Node in a Linked List', difficulty: 'easy', leetcodeId: 237, leetcodeUrl: 'https://leetcode.com/problems/delete-node-in-a-linked-list/', patterns: ['linked-list'] },
+                            { id: 'linked-list-cycle', title: 'Linked List Cycle', difficulty: 'easy', leetcodeId: 141, leetcodeUrl: 'https://leetcode.com/problems/linked-list-cycle/', patterns: ['linked-list', 'two-pointers'] }
                         ]
                     }
                 ]
@@ -515,13 +523,14 @@ Often, we can make code FASTER (Time) by using MORE MEMORY (Space).
                         id: 'recursion-intro',
                         title: 'Recursion Basics',
                         description: 'Base case, recursive case, call stack visualization',
-                        videoUrl: VIDEOS.recursionIntro,
-                        videoTitle: '5 Simple Steps for Solving Any Recursive Problem',
-                        videoDuration: '21:03',
+                        resources: [
+                            { id: 'res-rec-1', title: '5 Simple Steps for Solving Any Recursive Problem', url: VIDEOS.recursionIntro, type: 'concept', duration: '21:03' },
+                            { id: 'res-rec-2', title: 'Recursion Explained (Computerphile)', url: VIDEOS.recursionTheory, type: 'concept', duration: '9:40' }
+                        ],
                         problems: [
-                            { id: 'fibonacci', title: 'Fibonacci Number', difficulty: 'easy', leetcodeId: 509, leetcodeUrl: 'https://leetcode.com/problems/fibonacci-number/', patterns: ['recursion', 'dp'] },
+                            { id: 'fibonacci', title: 'Fibonacci Number', difficulty: 'easy', leetcodeId: 509, leetcodeUrl: 'https://leetcode.com/problems/fibonacci-number/', patterns: ['recursion'] },
                             { id: 'power-of-two', title: 'Power of Two', difficulty: 'easy', leetcodeId: 231, leetcodeUrl: 'https://leetcode.com/problems/power-of-two/', patterns: ['recursion', 'bit-manipulation'] },
-                            { id: 'linked-list-cycle', title: 'Linked List Cycle', difficulty: 'easy', leetcodeId: 141, leetcodeUrl: 'https://leetcode.com/problems/linked-list-cycle/', patterns: ['linked-list', 'two-pointers'] }
+                            { id: 'reverse-string', title: 'Reverse String', difficulty: 'easy', leetcodeId: 344, leetcodeUrl: 'https://leetcode.com/problems/reverse-string/', patterns: ['recursion', 'two-pointers'] }
                         ]
                     }
                 ]
@@ -536,13 +545,15 @@ Often, we can make code FASTER (Time) by using MORE MEMORY (Space).
                         id: 'binary-tree-intro',
                         title: 'Binary Trees',
                         description: 'Tree structure, pre/in/post order traversals (O(n))',
-                        videoUrl: VIDEOS.binaryTreeIntro,
-                        videoTitle: 'Binary Trees - NeetCode',
-                        videoDuration: '15:21',
+                        resources: [
+                            { id: 'res-tree-1', title: 'Binary Trees - NeetCode', url: VIDEOS.binaryTreeIntro, type: 'concept', duration: '15:21' },
+                            { id: 'res-tree-2', title: 'Binary Search Tree Introduction', url: VIDEOS.treeTheory, type: 'concept', duration: '14:00' }
+                        ],
                         problems: [
                             { id: 'preorder', title: 'Binary Tree Preorder Traversal', difficulty: 'easy', leetcodeId: 144, leetcodeUrl: 'https://leetcode.com/problems/binary-tree-preorder-traversal/', patterns: ['tree', 'dfs'] },
                             { id: 'max-depth', title: 'Maximum Depth of Binary Tree', difficulty: 'easy', leetcodeId: 104, leetcodeUrl: 'https://leetcode.com/problems/maximum-depth-of-binary-tree/', patterns: ['tree', 'dfs'] },
-                            { id: 'same-tree', title: 'Same Tree', difficulty: 'easy', leetcodeId: 100, leetcodeUrl: 'https://leetcode.com/problems/same-tree/', patterns: ['tree', 'dfs'] }
+                            { id: 'same-tree', title: 'Same Tree', difficulty: 'easy', leetcodeId: 100, leetcodeUrl: 'https://leetcode.com/problems/same-tree/', patterns: ['tree', 'dfs'] },
+                            { id: 'invert-tree', title: 'Invert Binary Tree', difficulty: 'easy', leetcodeId: 226, leetcodeUrl: 'https://leetcode.com/problems/invert-binary-tree/', patterns: ['tree', 'dfs'] }
                         ]
                     }
                 ]
@@ -563,8 +574,8 @@ Often, we can make code FASTER (Time) by using MORE MEMORY (Space).
                         problems: [
                             { id: 'middle-ll', title: 'Middle of the Linked List', difficulty: 'easy', leetcodeId: 876, leetcodeUrl: 'https://leetcode.com/problems/middle-of-the-linked-list/', patterns: ['linked-list', 'two-pointers'] },
                             { id: 'intersection', title: 'Intersection of Two Arrays II', difficulty: 'easy', leetcodeId: 350, leetcodeUrl: 'https://leetcode.com/problems/intersection-of-two-arrays-ii/', patterns: ['hashmap'] },
-                            { id: 'max-subarray', title: 'Maximum Subarray', difficulty: 'medium', leetcodeId: 53, leetcodeUrl: 'https://leetcode.com/problems/maximum-subarray/', patterns: ['array', 'dp', 'kadane'] },
-                            { id: 'search-insert', title: 'Search Insert Position', difficulty: 'easy', leetcodeId: 35, leetcodeUrl: 'https://leetcode.com/problems/search-insert-position/', patterns: ['binary-search'] }
+                            { id: 'plus-one', title: 'Plus One', difficulty: 'easy', leetcodeId: 66, leetcodeUrl: 'https://leetcode.com/problems/plus-one/', patterns: ['array'] },
+                            { id: 'missing-number', title: 'Missing Number', difficulty: 'easy', leetcodeId: 268, leetcodeUrl: 'https://leetcode.com/problems/missing-number/', patterns: ['array', 'hashmap'] }
                         ]
                     }
                 ]
