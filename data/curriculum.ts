@@ -211,204 +211,363 @@ export const curriculum: Week[] = [
             'Pass 60-minute exit check'
         ],
         days: [
-            // DAY 0: Welcome & Setup (NEW - Gentle Introduction)
+            // DAY 1: Time Complexity (Part 1)
             {
-                dayNumber: 0,
-                title: 'Welcome to Your DSA Journey',
-                goals: ['Understand what DSA is and why it matters', 'Set up your coding environment', 'Write your first loop'],
+                dayNumber: 1,
+                title: 'Time Complexity Analysis (Part 1)',
+                goals: ['Understand Algorithm Analysis', 'Master Frequency Counts'],
                 topics: [
                     {
-                        id: 'welcome-intro',
-                        title: 'What is Data Structures & Algorithms?',
-                        description: 'A gentle introduction to the world of DSA - no math, no jargon, just real talk.',
+                        id: 'time-complexity-1', title: 'Time Complexity Basics', description: 'Introduction to Algorithm Analysis',
                         resources: [
-                            { id: 'res-welcome-1', title: 'Why Learn DSA? (Motivation)', url: 'https://www.youtube.com/embed/8hly31xKli0', type: 'concept', duration: '10:00' }
+                            { id: 'res-tc-1', title: 'Analysis of Algorithms (Abdul Bari)', url: VIDEOS.bigOTheory, type: 'concept', duration: '18:00' },
+                            {
+                                id: 'res-tc-mit-1', title: 'Algorithmic Thinking (MIT)', url: VIDEOS.mitComplexity1, type: 'concept', duration: '53:00', summary: `# 🗺️ Lecture 1: Algorithmic Thinking & Big O
+
+**"How do I know if my code is good?"**
+
+This is the question that separates "coders" from "engineers". Anyone can write code that works. Engineers write code that **scales**. This lecture introduces the fundamental tool we use to measure that: **Big O Notation**.
+
+---
+
+## Part 1: How Do We Measure Speed? ⏱️
+
+Imagine you wrote a search algorithm. You want to prove it's fast.
+
+### ❌ Attempt 1: The Stopwatch Method (Wall-Clock Time)
+You run the code on your laptop and time it. "It took 0.05 seconds!"
+**Why this fails:**
+1.  **Hardware differences:** My gaming PC is faster than your 5-year-old laptop.
+2.  **OS background noise:** Did Windows Update start running? That slows you down.
+3.  **Language quirks:** Python is slower than C++. Checks take time.
+
+*Conclusion: Measuring "seconds" is useless for comparing algorithms scientifically.*
+
+### ✅ Attempt 2: Counting Operations (The "Step" Method)
+Instead of time, we count **steps**.
+*   \`x = 1\` (Assignment) → **1 step**
+*   \`if x > 0\` (Comparison) → **1 step**
+*   \`result = x + y\` (Math + Assignment) → **2 steps**
+
+If we count these steps, we get a formula.
+*   For a list of size \`n\`, maybe your code takes \`3n + 5\` steps.
+*   If \`n = 10\`, it takes ~35 steps.
+*   If \`n = 1,000,000\`, it takes ~3,000,005 steps.
+
+This is better! It doesn't matter if you're on a supercomputer or a toaster. The **number of steps** relative to the input \`n\` is purely about the *algorithm*.
+
+---
+
+## Part 2: The Birth of Big O (Asymptotic Analysis) 📈
+
+We don't actually care about the exact number of steps (like the \`+ 5\` in \`3n + 5\`). We care about **Growth**.
+
+**"If I double the input (n), what happens to the time?"**
+
+*   **Linear Growth:** If I double \`n\`, time doubles. (e.g., usually \`O(n)\`)
+*   **Quadratic Growth:** If I double \`n\`, time quadruples (x4). (e.g., \`O(n^2)\`)
+*   **Constant Growth:** If I double \`n\`, time stays the exact same. (e.g., \`O(1)\`)
+
+### The "Rules of the Road" for Big O
+When converting a step count like \`5n^2 + 27n + 100\` to Big O:
+1.  **Drop the Constants:** \`5n^2\` becomes just \`n^2\`. The \`5\` doesn't change the *curve*.
+2.  **Drop the Non-Dominant Terms:** \`n^2\` is way bigger than \`n\` when \`n\` is a million. So \`n^2 + n\` just becomes \`O(n^2)\`.
+
+---
+
+## Part 3: The "Big O" Tier List 📊
+
+This is your cheat sheet for the rest of your career. Memorize this ranking.
+
+| Efficiency | Name | Tier | Real World Analogy 🌍 | Example Code |
+| :--- | :--- | :--- | :--- | :--- |
+| **O(1)** | Constant | **GOD TIER** ⚡ | Snapping your fingers. Takes the same time regardless of room size. | \`arr[0]\` |
+| **O(log n)** | Logarithmic | **S-Tier** 🔥 | Finding a word in a dictionary (splitting in half). | Binary Search |
+| **O(n)** | Linear | **A-Tier** 🚶 | Reading a book page-by-page. Double pages = Double time. | \`for x in list\` |
+| **O(n log n)** | Log-Linear | **B-Tier** 😐 | Sorting a deck of cards efficiently. | Merge Sort |
+| **O(n^2)** | Quadratic | **F-Tier** 🐢 | Comparing everyone in a room with everyone else. | Nested loops |
+| **O(2^n)** | Exponential | **TRASH** 🚮 | Trying every combination on a padlock. Impossible for big inputs. | Naive Fibonacci |
+
+**Goal:** Always try to move your code UP this tier list.
+
+---
+
+## Part 4: The Laws of Big O 📜
+
+How do you look at a chunk of messy code and figure out the Big O? Use these two laws.
+
+### Law 1: Addition (Sequential Steps)
+If you have two separate tasks one after another, you **add** them, but the BIGGER one wins.
+
+\`\`\`python
+# Task A: Loop through list (O(n))
+for x in list:
+    print(x)
+
+# Task B: Loop through list AGAIN (O(n))
+for y in list:
+    print(y)
+\`\`\`
+*   Total = \`O(n) + O(n)\` = \`O(2n)\`.
+*   Drop constant \`2\` → **O(n)**.
+
+### Law 2: Multiplication (Nested Steps)
+If one task is **inside** another, you **multiply** them.
+
+\`\`\`python
+# Task A: Loop through list (O(n))
+for x in list:
+    # Task B: Inside, loop EACH time (O(n))
+    for y in list:
+        print(x, y)
+\`\`\`
+*   Total = \`O(n) * O(n)\` = **O(n^2)**.
+*   *Warning:* Nested loops are the #1 cause of slow code.
+
+---
+
+## Part 5: Case Studies (Detailed Breakdown) 🕵️‍♂️
+
+### Case A: The Linear Search (O(n))
+**Scenario:** You have a disorganized pile of papers and need to find one.
+**Method:** You look at the first paper. Not it. Second paper. Not it. You have to check potentially **every single paper**.
+
+\`\`\`python
+def linear_search(L, target):
+    for x in L:          # Runs 'n' times
+        if x == target:  # 1 step
+            return True
+    return False
+\`\`\`
+*   **Best Case:** First item is it. \`O(1)\`.
+*   **Worst Case:** Last item is it (or not there). \`O(n)\`.
+*   **Verdict:** **O(n)** (We usually care about worst case).
+
+### Case B: The Dictionary Problem / Binary Search (O(log n))
+**Scenario:** Sorted dictionary. Find "Zebra".
+**Method:**
+1.  Open middle. "M". Zebra is after M.
+2.  Throw away A-M. (Half the data gone!)
+3.  Open middle of remaining. "T". Zebra is after T.
+4.  Throw away M-T. (Half again gone!)
+
+\`\`\`python
+def binary_search(A, target):
+    lo, hi = 0, len(A) - 1
+    while lo <= hi:             # This loop runs log(n) times!
+        mid = (lo + hi) // 2
+        if A[mid] == target: return True
+        if A[mid] < target: lo = mid + 1
+        else: hi = mid - 1
+    return False
+\`\`\`
+*   **Why is it O(log n)?** Because every step divides the problem by 2.
+    *   \`n = 1000\` → \`500\` → \`250\` → \`125\` → \`64\`... → \`1\`. (~10 steps).
+    *   \`O(n)\` would take 1000 steps. \`O(log n)\` takes 10. That is huge.
+
+### Case C: The Intersection (The Trap)
+**Scenario:** Find elements present in BOTH list A and list B.
+
+\`\`\`python
+# Naive approach
+result = []
+for x in A:              # O(n)
+    for y in B:          # O(n)
+        if x == y:
+            result.append(x)
+\`\`\`
+*   Outer loop runs \`n\` times.
+*   Inner loop runs \`n\` times for *every* outer iteration.
+*   Complexity: **O(n^2)**.
+*   If \`n = 10,000\`, \`n^2 = 100,000,000\`. This will crash your browser.
+
+---
+
+## Part 6: Space Complexity (The Backpack Analogy) 🎒
+
+Time isn't the only cost. We also pay with **Memory (RAM)**. Think of this as your backpack space.
+
+*   **O(1) Space:** You count on your fingers. No matter how big the problem, you use the same few variables.
+*   **O(n) Space:** You need to write down every number you hear on a notepad. If \`n\` doubles, your notepad needs double pages.
+*   **O(n^2) Space:** You build a massive 2D grid. Very expensive.
+
+**The Tradeoff:**
+Often, we can make code FASTER (Time) by using MORE MEMORY (Space).
+*   *Example:* Using a Hash Map (Dictionary) uses \`O(n)\` space but makes lookups \`O(1)\`.
+
+---
+
+## Summary Summary (Meta)
+1.  **Don't time code in seconds.** Count the operations.
+2.  **Drop the constants.** \`2n\` is just \`O(n)\`.
+3.  **Worst Case Matters.** We prepare for the apocalypse (biggest inputs).
+4.  **Avoid Nested Loops.** \`O(n^2)\` is the enemy of scale.`
+                            }
+        ],
+        problems: []
+    }
+]
+            },
+// DAY 2: Time Complexity (Part 2)
+{
+    dayNumber: 2,
+        title: 'Time Complexity Analysis (Part 2)',
+            goals: ['Master Asymptotic Notations', 'Big O, Omega, Theta'],
+                topics: [
+                    {
+                        id: 'time-complexity-2', title: 'Asymptotic Notations', description: 'Deep dive into Big O, Omega, and Theta',
+                        resources: [
+                            { id: 'res-tc-2', title: 'Big O Notation (NeetCode)', url: VIDEOS.bigO, type: 'guide', duration: '12:00' },
+                            { id: 'res-tc-mit-2', title: 'Models of Computation (MIT)', url: VIDEOS.mitComplexity2, type: 'concept', duration: '49:00' }
                         ],
                         problems: []
                     }
                 ]
-            },
-            // DAY 1: Arrays (The Foundation)
-            {
-                dayNumber: 1,
-                title: 'Arrays: Your First Data Structure',
-                goals: ['Understand what an array is', 'Learn how computers store data', 'Write simple loops'],
+},
+// DAY 3: Arrays & Hash Maps
+{
+    dayNumber: 3,
+        title: 'Arrays & Hash Maps',
+            goals: ['Understand Array memory layout', 'Master Hash Map lookups', 'Analyze time/space complexity'],
                 topics: [
                     {
-                        id: 'arrays-101',
-                        title: 'What is an Array?',
-                        description: 'Arrays are like numbered boxes. Learn how to put things in and take them out.',
+                        id: 'arrays-101', title: 'Array Components', description: 'Static vs Dynamic Arrays',
                         resources: [
                             { id: 'res-arr-1', title: 'Design Dynamic Array (NeetCode)', url: VIDEOS.arrayTheory, type: 'concept', duration: '15:00' },
                             { id: 'res-arr-2', title: 'Array Basics', url: VIDEOS.arrayBasics, type: 'guide', duration: '10:00' }
                         ],
                         problems: [
-                            { id: 'concat-array', title: 'Concatenation of Array', difficulty: 'easy', leetcodeId: 1929, leetcodeUrl: 'https://leetcode.com/problems/concatenation-of-array/', patterns: ['array'] }
-                        ]
-                    }
-                ]
-            },
-            // DAY 2: More Arrays + Gentle Speed Intro
-            {
-                dayNumber: 2,
-                title: 'Thinking in Steps',
-                goals: ['Understand why speed matters', 'Count operations in a loop', 'Solve your first real problem'],
-                topics: [
-                    {
-                        id: 'speed-intro',
-                        title: 'Why Does Speed Matter?',
-                        description: 'A gentle introduction to Big O - we count steps, not seconds.',
-                        resources: [
-                            { id: 'res-speed-1', title: 'Big O Notation (NeetCode)', url: VIDEOS.bigO, type: 'guide', duration: '12:00' }
-                        ],
-                        problems: [
-                            { id: 'running-sum', title: 'Running Sum of 1d Array', difficulty: 'easy', leetcodeId: 1480, leetcodeUrl: 'https://leetcode.com/problems/running-sum-of-1d-array/', patterns: ['array'] }
-                        ]
-                    }
-                ]
-            },
-            // DAY 3: Hash Maps
-            {
-                dayNumber: 3,
-                title: 'Hash Maps: The Magic Dictionary',
-                goals: ['Understand key-value storage', 'Learn O(1) lookups', 'Solve frequency problems'],
-                topics: [
-                    {
-                        id: 'hashmap-intro',
-                        title: 'The Power of Hash Maps',
-                        description: 'Store and retrieve data instantly. This is your secret weapon.',
-                        resources: [
-                            { id: 'res-hm-1', title: 'Hash Tables Explained', url: VIDEOS.hashmapTheory, type: 'concept', duration: '12:00' },
-                            { id: 'res-hm-2', title: 'Two Sum Walkthrough', url: VIDEOS.hashmap, type: 'guide', duration: '10:00' }
-                        ],
-                        problems: [
+                            { id: 'running-sum', title: 'Running Sum of 1d Array', difficulty: 'easy', leetcodeId: 1480, leetcodeUrl: 'https://leetcode.com/problems/running-sum-of-1d-array/', patterns: ['array'] },
                             { id: 'contains-duplicate', title: 'Contains Duplicate', difficulty: 'easy', leetcodeId: 217, leetcodeUrl: 'https://leetcode.com/problems/contains-duplicate/', patterns: ['hashmap'] },
                             { id: 'is-anagram', title: 'Valid Anagram', difficulty: 'easy', leetcodeId: 242, leetcodeUrl: 'https://leetcode.com/problems/valid-anagram/', patterns: ['hashmap'] }
                         ]
                     }
                 ]
-            },
-            // DAY 4: Linked Lists
-            {
-                dayNumber: 4,
-                title: 'Linked Lists: Nodes & Pointers',
-                goals: ['Understand nodes and pointers', 'Visualize memory layout', 'Reverse a list'],
+},
+// DAY 4: Two Pointers Pattern
+{
+    dayNumber: 4,
+        title: 'Two Pointers Pattern',
+            goals: ['Master Two Pointers', 'Analyze time/space complexity'],
                 topics: [
                     {
-                        id: 'll-basics',
-                        title: 'What is a Linked List?',
-                        description: 'A chain of boxes, each pointing to the next. Learn to traverse and reverse.',
+                        id: 'two-pointers-basics', title: 'Two Pointers Basics', description: 'Introduction to two-pointer technique',
                         resources: [
-                            { id: 'res-ll-1', title: 'Linked List Introduction', url: VIDEOS.linkedListIntro, type: 'concept', duration: '12:00' },
-                            { id: 'res-ll-2', title: 'Linked List Theory (William Fiset)', url: VIDEOS.linkedListTheory, type: 'concept', duration: '15:00' }
+                            { id: 'res-tp-1', title: 'Two Pointers Guided Simplification', url: VIDEOS.twoPointers, type: 'guide', duration: '10:00' }
                         ],
                         problems: [
-                            { id: 'reverse-ll', title: 'Reverse Linked List', difficulty: 'easy', leetcodeId: 206, leetcodeUrl: 'https://leetcode.com/problems/reverse-linked-list/', patterns: ['linked-list'] },
-                            { id: 'merge-sorted', title: 'Merge Two Sorted Lists', difficulty: 'easy', leetcodeId: 21, leetcodeUrl: 'https://leetcode.com/problems/merge-two-sorted-lists/', patterns: ['linked-list'] }
+                            { id: 'sorted-squares', title: 'Squares of a Sorted Array', difficulty: 'easy', leetcodeId: 977, leetcodeUrl: 'https://leetcode.com/problems/squares-of-a-sorted-array/', patterns: ['two-pointers'] },
+                            { id: 'move-zeroes', title: 'Move Zeroes', difficulty: 'easy', leetcodeId: 283, leetcodeUrl: 'https://leetcode.com/problems/move-zeroes/', patterns: ['two-pointers'] }
                         ]
                     }
                 ]
-            },
-            // DAY 5: Stacks & Queues
-            {
-                dayNumber: 5,
-                title: 'Stacks & Queues',
-                goals: ['LIFO vs FIFO', 'Real-world analogies', 'Solve bracket matching'],
+},
+// DAY 5: Linked Lists
+{
+    dayNumber: 5,
+        title: 'Linked Lists Data Structure',
+            goals: ['Understand Nodes & Pointers', 'Implement basic operations'],
+                topics: [
+                    {
+                        id: 'll-basics', title: 'Linked List Anatomy', description: 'Head, Tail, and Pointer logic',
+                        resources: [
+                            { id: 'res-ll-1', title: 'Linked List Introduction', url: VIDEOS.linkedListIntro, type: 'concept', duration: '12:00' }
+                        ],
+                        problems: [
+                            { id: 'reverse-ll', title: 'Reverse Linked List', difficulty: 'easy', leetcodeId: 206, leetcodeUrl: 'https://leetcode.com/problems/reverse-linked-list/', patterns: ['linked-list'] },
+                            { id: 'merge-sorted', title: 'Merge Two Sorted Lists', difficulty: 'easy', leetcodeId: 21, leetcodeUrl: 'https://leetcode.com/problems/merge-two-sorted-lists/', patterns: ['linked-list'] },
+                            { id: 'delete-node', title: 'Delete Node in a Linked List', difficulty: 'easy', leetcodeId: 237, leetcodeUrl: 'https://leetcode.com/problems/delete-node-in-a-linked-list/', patterns: ['linked-list'] }
+                        ]
+                    }
+                ]
+},
+// DAY 6: Stack & Queue
+{
+    dayNumber: 6,
+        title: 'Stacks & Queues',
+            goals: ['LIFO vs FIFO', 'Stack operations', 'Queue operations'],
                 topics: [
                     {
                         id: 'stack-queue-basics',
                         title: 'Linear Structures',
-                        description: 'Stack = pile of plates (last in, first out). Queue = line at a store (first in, first out).',
-                        resources: [
-                            { id: 'res-sq-1', title: 'Stacks & Queues (William Fiset)', url: VIDEOS.stackTheory, type: 'concept', duration: '14:00' },
-                            { id: 'res-sq-2', title: 'Valid Parentheses (NeetCode)', url: VIDEOS.stackIntro, type: 'guide', duration: '10:00' }
-                        ],
+                        description: 'Stack mechanics and Queue usage',
+                        videoUrl: VIDEOS.stackTheory,
+                        videoTitle: 'Stacks & Queues - William Fiset',
+                        videoDuration: '14:22',
                         problems: [
                             { id: 'valid-parentheses', title: 'Valid Parentheses', difficulty: 'easy', leetcodeId: 20, leetcodeUrl: 'https://leetcode.com/problems/valid-parentheses/', patterns: ['stack'] },
-                            { id: 'implement-queue', title: 'Implement Queue using Stacks', difficulty: 'easy', leetcodeId: 232, leetcodeUrl: 'https://leetcode.com/problems/implement-queue-using-stacks/', patterns: ['stack'] }
+                            { id: 'implement-queue', title: 'Implement Queue using Stacks', difficulty: 'easy', leetcodeId: 232, leetcodeUrl: 'https://leetcode.com/problems/implement-queue-using-stacks/', patterns: ['stack'] },
+                            { id: 'min-stack', title: 'Min Stack', difficulty: 'medium', leetcodeId: 155, leetcodeUrl: 'https://leetcode.com/problems/min-stack/', patterns: ['stack'] }
                         ]
                     }
                 ]
-            },
-            // DAY 6: Recursion
-            {
-                dayNumber: 6,
-                title: 'Recursion: Functions Calling Themselves',
-                goals: ['Understand the call stack', 'Trust the process', 'Solve Fibonacci'],
+},
+// DAY 7: Recursion
+{
+    dayNumber: 7,
+        title: 'Recursion Fundamentals',
+            goals: ['Understand call stack', 'Master base case + recursive case', 'Analyze recursive complexity'],
                 topics: [
                     {
                         id: 'recursion-intro',
                         title: 'Recursion Basics',
-                        description: 'A function that calls itself. Scary at first, but powerful once you get it.',
-                        resources: [
-                            { id: 'res-rec-1', title: 'Recursion Visualized (Reducible)', url: VIDEOS.recursionIntro, type: 'concept', duration: '21:00' }
-                        ],
+                        description: 'Base case, recursive case, call stack visualization',
+                        videoUrl: VIDEOS.recursionIntro,
+                        videoTitle: '5 Simple Steps for Solving Any Recursive Problem',
+                        videoDuration: '21:03',
                         problems: [
-                            { id: 'fibonacci', title: 'Fibonacci Number', difficulty: 'easy', leetcodeId: 509, leetcodeUrl: 'https://leetcode.com/problems/fibonacci-number/', patterns: ['recursion'] }
+                            { id: 'fibonacci', title: 'Fibonacci Number', difficulty: 'easy', leetcodeId: 509, leetcodeUrl: 'https://leetcode.com/problems/fibonacci-number/', patterns: ['recursion', 'dp'] },
+                            { id: 'power-of-two', title: 'Power of Two', difficulty: 'easy', leetcodeId: 231, leetcodeUrl: 'https://leetcode.com/problems/power-of-two/', patterns: ['recursion', 'bit-manipulation'] },
+                            { id: 'linked-list-cycle', title: 'Linked List Cycle', difficulty: 'easy', leetcodeId: 141, leetcodeUrl: 'https://leetcode.com/problems/linked-list-cycle/', patterns: ['linked-list', 'two-pointers'] }
                         ]
                     }
                 ]
-            },
-            // DAY 7: Binary Trees
-            {
-                dayNumber: 7,
-                title: 'Trees: Your First Non-Linear Structure',
-                goals: ['Understand tree structure', 'Learn traversal basics', 'Calculate depth'],
+},
+// DAY 8: Binary Trees
+{
+    dayNumber: 8,
+        title: 'Binary Trees & Traversals',
+            goals: ['Understand tree structure', 'Master DFS traversals', 'Calculate tree complexity'],
                 topics: [
                     {
                         id: 'binary-tree-intro',
-                        title: 'What is a Binary Tree?',
-                        description: 'A tree with branches. Each node has at most two children.',
-                        resources: [
-                            { id: 'res-tr-1', title: 'Binary Trees (NeetCode)', url: VIDEOS.binaryTreeIntro, type: 'guide', duration: '15:00' },
-                            { id: 'res-tr-2', title: 'Tree Theory (William Fiset)', url: VIDEOS.treeTheory, type: 'concept', duration: '15:00' }
-                        ],
+                        title: 'Binary Trees',
+                        description: 'Tree structure, pre/in/post order traversals (O(n))',
+                        videoUrl: VIDEOS.binaryTreeIntro,
+                        videoTitle: 'Binary Trees - NeetCode',
+                        videoDuration: '15:21',
                         problems: [
+                            { id: 'preorder', title: 'Binary Tree Preorder Traversal', difficulty: 'easy', leetcodeId: 144, leetcodeUrl: 'https://leetcode.com/problems/binary-tree-preorder-traversal/', patterns: ['tree', 'dfs'] },
                             { id: 'max-depth', title: 'Maximum Depth of Binary Tree', difficulty: 'easy', leetcodeId: 104, leetcodeUrl: 'https://leetcode.com/problems/maximum-depth-of-binary-tree/', patterns: ['tree', 'dfs'] },
-                            { id: 'preorder', title: 'Binary Tree Preorder Traversal', difficulty: 'easy', leetcodeId: 144, leetcodeUrl: 'https://leetcode.com/problems/binary-tree-preorder-traversal/', patterns: ['tree', 'dfs'] }
+                            { id: 'same-tree', title: 'Same Tree', difficulty: 'easy', leetcodeId: 100, leetcodeUrl: 'https://leetcode.com/problems/same-tree/', patterns: ['tree', 'dfs'] }
                         ]
                     }
                 ]
-            },
-            // DAY 8: Big O Deep Dive (NOW they're ready!)
-            {
-                dayNumber: 8,
-                title: 'Big O: Now You\'re Ready',
-                goals: ['Formalize what you\'ve learned', 'Understand O(1), O(n), O(n^2)', 'No problems - just reflection'],
-                topics: [
-                    {
-                        id: 'big-o-deep',
-                        title: 'The Big O Tier List',
-                        description: 'Now that you\'ve written loops and seen slow code, let\'s formalize it.',
-                        resources: [
-                            { id: 'res-bo-1', title: 'Analysis of Algorithms (Abdul Bari)', url: VIDEOS.bigOTheory, type: 'concept', duration: '18:00' },
-                            { id: 'res-bo-2', title: 'Algorithmic Thinking (MIT)', url: VIDEOS.mitComplexity1, type: 'concept', duration: '53:00' }
-                        ],
-                        problems: []
-                    }
-                ]
-            },
-            // DAY 9: Review & Confidence Check
-            {
-                dayNumber: 9,
-                title: 'Review & Confidence Check',
-                goals: ['Re-solve 3 problems from this week', 'Build muscle memory', 'Prepare for Phase A'],
+},
+// DAY 9: Week 0 Review & Mini Mock
+{
+    dayNumber: 9,
+        title: 'Prerequisites Review & Mini Mock',
+            goals: ['Review all data structures', 'Solve mixed problems', 'Practice complexity analysis'],
                 topics: [
                     {
                         id: 'week0-review',
-                        title: 'Prerequisites Review',
-                        description: 'Re-solve your favorite problems. Speed matters now.',
-                        resources: [],
+                        title: 'Prerequisites Comprehensive Review',
+                        description: 'Review Big O, arrays, linked lists, stack, queue, recursion, trees',
+                        videoUrl: '',
+                        videoTitle: 'Review Day - No New Video',
+                        videoDuration: '0:00',
                         problems: [
                             { id: 'middle-ll', title: 'Middle of the Linked List', difficulty: 'easy', leetcodeId: 876, leetcodeUrl: 'https://leetcode.com/problems/middle-of-the-linked-list/', patterns: ['linked-list', 'two-pointers'] },
                             { id: 'intersection', title: 'Intersection of Two Arrays II', difficulty: 'easy', leetcodeId: 350, leetcodeUrl: 'https://leetcode.com/problems/intersection-of-two-arrays-ii/', patterns: ['hashmap'] },
+                            { id: 'max-subarray', title: 'Maximum Subarray', difficulty: 'medium', leetcodeId: 53, leetcodeUrl: 'https://leetcode.com/problems/maximum-subarray/', patterns: ['array', 'dp', 'kadane'] },
                             { id: 'search-insert', title: 'Search Insert Position', difficulty: 'easy', leetcodeId: 35, leetcodeUrl: 'https://leetcode.com/problems/search-insert-position/', patterns: ['binary-search'] }
                         ]
                     }
                 ]
-            },
-            // DAY 10: Rest Day
-            { dayNumber: 10, title: 'Rest Day', goals: ['Rest and recover', 'Celebrate completing Week 0!'], isRestDay: true, topics: [] }
+},
+// Day 10: Rest Day
+{ dayNumber: 10, title: 'Rest Day', goals: ['Rest and recover'], isRestDay: true, topics: [] }
         ]
     },
 
