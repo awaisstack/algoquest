@@ -403,16 +403,16 @@ Often, we can make code FASTER (Time) by using MORE MEMORY (Space).
 3.  **Worst Case Matters.** We prepare for the apocalypse (biggest inputs).
 4.  **Avoid Nested Loops.** \`O(n^2)\` is the enemy of scale.`
                             }
-        ],
-        problems: []
-    }
-]
+                        ],
+                        problems: []
+                    }
+                ]
             },
-// DAY 2: Time Complexity (Part 2)
-{
-    dayNumber: 2,
-        title: 'Time Complexity Analysis (Part 2)',
-            goals: ['Master Asymptotic Notations', 'Big O, Omega, Theta'],
+            // DAY 2: Time Complexity (Part 2)
+            {
+                dayNumber: 2,
+                title: 'Time Complexity Analysis (Part 2)',
+                goals: ['Master Asymptotic Notations', 'Big O, Omega, Theta'],
                 topics: [
                     {
                         id: 'time-complexity-2', title: 'Asymptotic Notations', description: 'Deep dive into Big O, Omega, and Theta',
@@ -423,18 +423,19 @@ Often, we can make code FASTER (Time) by using MORE MEMORY (Space).
                         problems: []
                     }
                 ]
-},
-// DAY 3: Arrays & Hash Maps
-{
-    dayNumber: 3,
-        title: 'Arrays & Hash Maps',
-            goals: ['Understand Array memory layout', 'Master Hash Map lookups', 'Analyze time/space complexity'],
+            },
+            // DAY 3: Arrays & Hash Maps
+            {
+                dayNumber: 3,
+                title: 'Arrays & Hash Maps',
+                goals: ['Understand Array memory layout', 'Master Hash Map lookups', 'Analyze time/space complexity'],
                 topics: [
                     {
                         id: 'arrays-101', title: 'Array Components', description: 'Static vs Dynamic Arrays',
                         resources: [
                             { id: 'res-arr-1', title: 'Design Dynamic Array (NeetCode)', url: VIDEOS.arrayTheory, type: 'concept', duration: '15:00' },
-                            { id: 'res-arr-2', title: 'Array Basics', url: VIDEOS.arrayBasics, type: 'guide', duration: '10:00' }
+                            { id: 'res-arr-2', title: 'Array Basics', url: VIDEOS.arrayBasics, type: 'guide', duration: '10:00' },
+                            { id: 'res-hm-1', title: 'Hash Tables Explained (CS Dojo)', url: VIDEOS.hashmapTheory, type: 'concept', duration: '10:38' }
                         ],
                         problems: [
                             { id: 'running-sum', title: 'Running Sum of 1d Array', difficulty: 'easy', leetcodeId: 1480, leetcodeUrl: 'https://leetcode.com/problems/running-sum-of-1d-array/', patterns: ['array'] },
@@ -443,12 +444,12 @@ Often, we can make code FASTER (Time) by using MORE MEMORY (Space).
                         ]
                     }
                 ]
-},
-// DAY 4: Two Pointers Pattern
-{
-    dayNumber: 4,
-        title: 'Two Pointers Pattern',
-            goals: ['Master Two Pointers', 'Analyze time/space complexity'],
+            },
+            // DAY 4: Two Pointers Pattern
+            {
+                dayNumber: 4,
+                title: 'Two Pointers Pattern',
+                goals: ['Master Two Pointers', 'Analyze time/space complexity'],
                 topics: [
                     {
                         id: 'two-pointers-basics', title: 'Two Pointers Basics', description: 'Introduction to two-pointer technique',
@@ -461,12 +462,12 @@ Often, we can make code FASTER (Time) by using MORE MEMORY (Space).
                         ]
                     }
                 ]
-},
-// DAY 5: Linked Lists
-{
-    dayNumber: 5,
-        title: 'Linked Lists Data Structure',
-            goals: ['Understand Nodes & Pointers', 'Implement basic operations'],
+            },
+            // DAY 5: Linked Lists
+            {
+                dayNumber: 5,
+                title: 'Linked Lists Data Structure',
+                goals: ['Understand Nodes & Pointers', 'Implement basic operations'],
                 topics: [
                     {
                         id: 'll-basics', title: 'Linked List Anatomy', description: 'Head, Tail, and Pointer logic',
@@ -480,33 +481,35 @@ Often, we can make code FASTER (Time) by using MORE MEMORY (Space).
                         ]
                     }
                 ]
-},
-// DAY 6: Stack & Queue
-{
-    dayNumber: 6,
-        title: 'Stacks & Queues',
-            goals: ['LIFO vs FIFO', 'Stack operations', 'Queue operations'],
+            },
+            // DAY 6: Stack & Queue
+            {
+                dayNumber: 6,
+                title: 'Stacks & Queues',
+                goals: ['LIFO vs FIFO', 'Stack operations', 'Queue operations'],
                 topics: [
                     {
                         id: 'stack-queue-basics',
                         title: 'Linear Structures',
                         description: 'Stack mechanics and Queue usage',
-                        videoUrl: VIDEOS.stackTheory,
-                        videoTitle: 'Stacks & Queues - William Fiset',
-                        videoDuration: '14:22',
+                        resources: [
+                            { id: 'res-stk-1', title: 'Stacks (William Fiset)', url: VIDEOS.stackTheory, type: 'concept', duration: '14:22' },
+                            { id: 'res-que-1', title: 'Queues (William Fiset)', url: VIDEOS.queueTheory, type: 'concept', duration: '8:43' }
+                        ],
                         problems: [
                             { id: 'valid-parentheses', title: 'Valid Parentheses', difficulty: 'easy', leetcodeId: 20, leetcodeUrl: 'https://leetcode.com/problems/valid-parentheses/', patterns: ['stack'] },
                             { id: 'implement-queue', title: 'Implement Queue using Stacks', difficulty: 'easy', leetcodeId: 232, leetcodeUrl: 'https://leetcode.com/problems/implement-queue-using-stacks/', patterns: ['stack'] },
-                            { id: 'min-stack', title: 'Min Stack', difficulty: 'medium', leetcodeId: 155, leetcodeUrl: 'https://leetcode.com/problems/min-stack/', patterns: ['stack'] }
+                            { id: 'min-stack', title: 'Min Stack', difficulty: 'medium', leetcodeId: 155, leetcodeUrl: 'https://leetcode.com/problems/min-stack/', patterns: ['stack'] },
+                            { id: 'number-recent-calls', title: 'Number of Recent Calls', difficulty: 'easy', leetcodeId: 933, leetcodeUrl: 'https://leetcode.com/problems/number-of-recent-calls/', patterns: ['queue'] }
                         ]
                     }
                 ]
-},
-// DAY 7: Recursion
-{
-    dayNumber: 7,
-        title: 'Recursion Fundamentals',
-            goals: ['Understand call stack', 'Master base case + recursive case', 'Analyze recursive complexity'],
+            },
+            // DAY 7: Recursion
+            {
+                dayNumber: 7,
+                title: 'Recursion Fundamentals',
+                goals: ['Understand call stack', 'Master base case + recursive case', 'Analyze recursive complexity'],
                 topics: [
                     {
                         id: 'recursion-intro',
@@ -522,12 +525,12 @@ Often, we can make code FASTER (Time) by using MORE MEMORY (Space).
                         ]
                     }
                 ]
-},
-// DAY 8: Binary Trees
-{
-    dayNumber: 8,
-        title: 'Binary Trees & Traversals',
-            goals: ['Understand tree structure', 'Master DFS traversals', 'Calculate tree complexity'],
+            },
+            // DAY 8: Binary Trees
+            {
+                dayNumber: 8,
+                title: 'Binary Trees & Traversals',
+                goals: ['Understand tree structure', 'Master DFS traversals', 'Calculate tree complexity'],
                 topics: [
                     {
                         id: 'binary-tree-intro',
@@ -543,12 +546,12 @@ Often, we can make code FASTER (Time) by using MORE MEMORY (Space).
                         ]
                     }
                 ]
-},
-// DAY 9: Week 0 Review & Mini Mock
-{
-    dayNumber: 9,
-        title: 'Prerequisites Review & Mini Mock',
-            goals: ['Review all data structures', 'Solve mixed problems', 'Practice complexity analysis'],
+            },
+            // DAY 9: Week 0 Review & Mini Mock
+            {
+                dayNumber: 9,
+                title: 'Prerequisites Review & Mini Mock',
+                goals: ['Review all data structures', 'Solve mixed problems', 'Practice complexity analysis'],
                 topics: [
                     {
                         id: 'week0-review',
@@ -565,283 +568,283 @@ Often, we can make code FASTER (Time) by using MORE MEMORY (Space).
                         ]
                     }
                 ]
-},
-// Day 10: Rest Day
-{ dayNumber: 10, title: 'Rest Day', goals: ['Rest and recover'], isRestDay: true, topics: [] }
+            },
+            // Day 10: Rest Day
+            { dayNumber: 10, title: 'Rest Day', goals: ['Rest and recover'], isRestDay: true, topics: [] }
         ]
     },
 
-// PHASE A - Week 1
-{
-    weekNumber: 1,
+    // PHASE A - Week 1
+    {
+        weekNumber: 1,
         title: 'Arrays & Hashing & Two-Pointers',
-            phase: 'phase-a',
-                focus: 'Implement array traversal, frequency maps, two-pointer templates',
-                    dailyGoal: 'Master foundational patterns',
-                        problemsPerDay: '3-4 (mostly Easy, 1 Medium by Friday)',
-                            deliverables: ['8-12 problems solved + 3 re-solves', 'Frequency-map and two-pointer templates in repo'],
-                                days: [
-                                    {
-                                        dayNumber: 1, title: 'Array Basics & Frequency Counting', goals: ['Array traversal', 'Frequency counting', 'Analyze time/space complexity'], topics: [
-                                            {
-                                                id: 'freq-counting', title: 'Frequency Counting', description: 'Count occurrences using hashmaps', videoUrl: VIDEOS.hashmap, videoTitle: 'Hashmaps - NeetCode', videoDuration: '13:45', problems: [
-                                                    { id: 'contains-duplicate', title: 'Contains Duplicate', difficulty: 'easy', leetcodeId: 217, leetcodeUrl: 'https://leetcode.com/problems/contains-duplicate/', patterns: ['hashmap'] },
-                                                    { id: 'valid-anagram', title: 'Valid Anagram', difficulty: 'easy', leetcodeId: 242, leetcodeUrl: 'https://leetcode.com/problems/valid-anagram/', patterns: ['hashmap'] },
-                                                    { id: 'majority-element', title: 'Majority Element', difficulty: 'easy', leetcodeId: 169, leetcodeUrl: 'https://leetcode.com/problems/majority-element/', patterns: ['hashmap', 'boyer-moore'] },
-                                                    { id: 'single-number', title: 'Single Number', difficulty: 'easy', leetcodeId: 136, leetcodeUrl: 'https://leetcode.com/problems/single-number/', patterns: ['hashmap', 'bit'] },
-                                                    { id: 'best-time-stock', title: 'Best Time to Buy and Sell Stock', difficulty: 'easy', leetcodeId: 121, leetcodeUrl: 'https://leetcode.com/problems/best-time-to-buy-and-sell-stock/', patterns: ['array'] }
-                                                ]
-                                            }
-                                        ]
-                                    },
-                                    {
-                                        dayNumber: 2, title: 'Two Pointers Template', goals: ['Learn two-pointer pattern', 'Solve 3 easy'], topics: [
-                                            {
-                                                id: 'two-pointers-intro', title: 'Two Pointers', description: 'Optimizing O(n^2) to O(n)',
-                                                resources: [
-                                                    { id: 'res-tp-1', title: 'Two Pointers Pattern (NeetCode)', url: VIDEOS.twoPointers, type: 'guide', duration: '12:00' }
-                                                ],
-                                                problems: [
-                                                    { id: 'valid-palindrome', title: 'Valid Palindrome', difficulty: 'easy', leetcodeId: 125, leetcodeUrl: 'https://leetcode.com/problems/valid-palindrome/', patterns: ['two-pointers'] },
-                                                    { id: 'two-sum-ii', title: 'Two Sum II - Input Array Is Sorted', difficulty: 'medium', leetcodeId: 167, leetcodeUrl: 'https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/', patterns: ['two-pointers'] },
-                                                    { id: 'move-zeroes', title: 'Move Zeroes', difficulty: 'easy', leetcodeId: 283, leetcodeUrl: 'https://leetcode.com/problems/move-zeroes/', patterns: ['two-pointers'] },
-                                                    { id: 'squares-sorted', title: 'Squares of a Sorted Array', difficulty: 'easy', leetcodeId: 977, leetcodeUrl: 'https://leetcode.com/problems/squares-of-a-sorted-array/', patterns: ['two-pointers'] },
-                                                    { id: 'reverse-string', title: 'Reverse String', difficulty: 'easy', leetcodeId: 344, leetcodeUrl: 'https://leetcode.com/problems/reverse-string/', patterns: ['two-pointers'] }
-                                                ]
-                                            }
-                                        ]
-                                    },
-                                    {
-                                        dayNumber: 3, title: 'Sorting + Two Pointers', goals: ['When to sort first', 'Solve 2-3 problems'], topics: [
-                                            {
-                                                id: 'sorting-patterns', title: 'Sorting Patterns', description: 'Sorting as preprocessing for two-pointer', videoUrl: VIDEOS.twoPointers, videoTitle: 'Two Pointers - NeetCode', videoDuration: '18:42', problems: [
-                                                    { id: 'three-sum', title: '3Sum', difficulty: 'medium', leetcodeId: 15, leetcodeUrl: 'https://leetcode.com/problems/3sum/', patterns: ['two-pointers', 'sorting'] },
-                                                    { id: 'container-water', title: 'Container With Most Water', difficulty: 'medium', leetcodeId: 11, leetcodeUrl: 'https://leetcode.com/problems/container-with-most-water/', patterns: ['two-pointers'] }
-                                                ]
-                                            }
-                                        ]
-                                    },
-                                    {
-                                        dayNumber: 4, title: 'Hashset & Hashmap Patterns', goals: ['Master hashmap usage', 'Solve 3 problems'], topics: [
-                                            {
-                                                id: 'hashset-patterns', title: 'Hashset Patterns', description: 'O(1) lookups for membership testing', videoUrl: VIDEOS.hashmap, videoTitle: 'Hashmaps - NeetCode', videoDuration: '13:45', problems: [
-                                                    { id: 'longest-consecutive', title: 'Longest Consecutive Sequence', difficulty: 'medium', leetcodeId: 128, leetcodeUrl: 'https://leetcode.com/problems/longest-consecutive-sequence/', patterns: ['hashset'] },
-                                                    { id: 'group-anagrams', title: 'Group Anagrams', difficulty: 'medium', leetcodeId: 49, leetcodeUrl: 'https://leetcode.com/problems/group-anagrams/', patterns: ['hashmap', 'sorting'] },
-                                                    { id: 'top-k-frequent', title: 'Top K Frequent Elements', difficulty: 'medium', leetcodeId: 347, leetcodeUrl: 'https://leetcode.com/problems/top-k-frequent-elements/', patterns: ['hashmap', 'heap'] }
-                                                ]
-                                            }
-                                        ]
-                                    },
-                                    {
-                                        dayNumber: 5, title: 'Mixed Practice + Timed Mock', goals: ['2 Easy, 1 Medium timed', 'Full postmortem'], topics: [
-                                            {
-                                                id: 'mixed-practice-1', title: 'Week 1 Mixed Practice', description: 'Apply all patterns learned', videoUrl: VIDEOS.twoPointers, videoTitle: 'Two Pointers - NeetCode', videoDuration: '18:42', problems: [
-                                                    { id: 'product-except', title: 'Product of Array Except Self', difficulty: 'medium', leetcodeId: 238, leetcodeUrl: 'https://leetcode.com/problems/product-of-array-except-self/', patterns: ['array', 'prefix-sum'] },
-                                                    { id: 'encode-decode', title: 'Encode and Decode Strings', difficulty: 'medium', leetcodeId: 271, leetcodeUrl: 'https://leetcode.com/problems/encode-and-decode-strings/', patterns: ['string'] }
-                                                ]
-                                            }
-                                        ]
-                                    },
-                                    { dayNumber: 6, title: 'Re-solves & Flashcards', goals: ['Re-solve 4 problems', 'Create pattern flashcards'], topics: [], isLightDay: true },
-                                    { dayNumber: 7, title: 'Rest Day', goals: ['Full rest', 'Exercise', 'Sleep'], topics: [], isRestDay: true }
-                                ],
-                                    isBossWeek: false
-},
+        phase: 'phase-a',
+        focus: 'Implement array traversal, frequency maps, two-pointer templates',
+        dailyGoal: 'Master foundational patterns',
+        problemsPerDay: '3-4 (mostly Easy, 1 Medium by Friday)',
+        deliverables: ['8-12 problems solved + 3 re-solves', 'Frequency-map and two-pointer templates in repo'],
+        days: [
+            {
+                dayNumber: 1, title: 'Array Basics & Frequency Counting', goals: ['Array traversal', 'Frequency counting', 'Analyze time/space complexity'], topics: [
+                    {
+                        id: 'freq-counting', title: 'Frequency Counting', description: 'Count occurrences using hashmaps', videoUrl: VIDEOS.hashmap, videoTitle: 'Hashmaps - NeetCode', videoDuration: '13:45', problems: [
+                            { id: 'contains-duplicate', title: 'Contains Duplicate', difficulty: 'easy', leetcodeId: 217, leetcodeUrl: 'https://leetcode.com/problems/contains-duplicate/', patterns: ['hashmap'] },
+                            { id: 'valid-anagram', title: 'Valid Anagram', difficulty: 'easy', leetcodeId: 242, leetcodeUrl: 'https://leetcode.com/problems/valid-anagram/', patterns: ['hashmap'] },
+                            { id: 'majority-element', title: 'Majority Element', difficulty: 'easy', leetcodeId: 169, leetcodeUrl: 'https://leetcode.com/problems/majority-element/', patterns: ['hashmap', 'boyer-moore'] },
+                            { id: 'single-number', title: 'Single Number', difficulty: 'easy', leetcodeId: 136, leetcodeUrl: 'https://leetcode.com/problems/single-number/', patterns: ['hashmap', 'bit'] },
+                            { id: 'best-time-stock', title: 'Best Time to Buy and Sell Stock', difficulty: 'easy', leetcodeId: 121, leetcodeUrl: 'https://leetcode.com/problems/best-time-to-buy-and-sell-stock/', patterns: ['array'] }
+                        ]
+                    }
+                ]
+            },
+            {
+                dayNumber: 2, title: 'Two Pointers Template', goals: ['Learn two-pointer pattern', 'Solve 3 easy'], topics: [
+                    {
+                        id: 'two-pointers-intro', title: 'Two Pointers', description: 'Optimizing O(n^2) to O(n)',
+                        resources: [
+                            { id: 'res-tp-1', title: 'Two Pointers Pattern (NeetCode)', url: VIDEOS.twoPointers, type: 'guide', duration: '12:00' }
+                        ],
+                        problems: [
+                            { id: 'valid-palindrome', title: 'Valid Palindrome', difficulty: 'easy', leetcodeId: 125, leetcodeUrl: 'https://leetcode.com/problems/valid-palindrome/', patterns: ['two-pointers'] },
+                            { id: 'two-sum-ii', title: 'Two Sum II - Input Array Is Sorted', difficulty: 'medium', leetcodeId: 167, leetcodeUrl: 'https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/', patterns: ['two-pointers'] },
+                            { id: 'move-zeroes', title: 'Move Zeroes', difficulty: 'easy', leetcodeId: 283, leetcodeUrl: 'https://leetcode.com/problems/move-zeroes/', patterns: ['two-pointers'] },
+                            { id: 'squares-sorted', title: 'Squares of a Sorted Array', difficulty: 'easy', leetcodeId: 977, leetcodeUrl: 'https://leetcode.com/problems/squares-of-a-sorted-array/', patterns: ['two-pointers'] },
+                            { id: 'reverse-string', title: 'Reverse String', difficulty: 'easy', leetcodeId: 344, leetcodeUrl: 'https://leetcode.com/problems/reverse-string/', patterns: ['two-pointers'] }
+                        ]
+                    }
+                ]
+            },
+            {
+                dayNumber: 3, title: 'Sorting + Two Pointers', goals: ['When to sort first', 'Solve 2-3 problems'], topics: [
+                    {
+                        id: 'sorting-patterns', title: 'Sorting Patterns', description: 'Sorting as preprocessing for two-pointer', videoUrl: VIDEOS.twoPointers, videoTitle: 'Two Pointers - NeetCode', videoDuration: '18:42', problems: [
+                            { id: 'three-sum', title: '3Sum', difficulty: 'medium', leetcodeId: 15, leetcodeUrl: 'https://leetcode.com/problems/3sum/', patterns: ['two-pointers', 'sorting'] },
+                            { id: 'container-water', title: 'Container With Most Water', difficulty: 'medium', leetcodeId: 11, leetcodeUrl: 'https://leetcode.com/problems/container-with-most-water/', patterns: ['two-pointers'] }
+                        ]
+                    }
+                ]
+            },
+            {
+                dayNumber: 4, title: 'Hashset & Hashmap Patterns', goals: ['Master hashmap usage', 'Solve 3 problems'], topics: [
+                    {
+                        id: 'hashset-patterns', title: 'Hashset Patterns', description: 'O(1) lookups for membership testing', videoUrl: VIDEOS.hashmap, videoTitle: 'Hashmaps - NeetCode', videoDuration: '13:45', problems: [
+                            { id: 'longest-consecutive', title: 'Longest Consecutive Sequence', difficulty: 'medium', leetcodeId: 128, leetcodeUrl: 'https://leetcode.com/problems/longest-consecutive-sequence/', patterns: ['hashset'] },
+                            { id: 'group-anagrams', title: 'Group Anagrams', difficulty: 'medium', leetcodeId: 49, leetcodeUrl: 'https://leetcode.com/problems/group-anagrams/', patterns: ['hashmap', 'sorting'] },
+                            { id: 'top-k-frequent', title: 'Top K Frequent Elements', difficulty: 'medium', leetcodeId: 347, leetcodeUrl: 'https://leetcode.com/problems/top-k-frequent-elements/', patterns: ['hashmap', 'heap'] }
+                        ]
+                    }
+                ]
+            },
+            {
+                dayNumber: 5, title: 'Mixed Practice + Timed Mock', goals: ['2 Easy, 1 Medium timed', 'Full postmortem'], topics: [
+                    {
+                        id: 'mixed-practice-1', title: 'Week 1 Mixed Practice', description: 'Apply all patterns learned', videoUrl: VIDEOS.twoPointers, videoTitle: 'Two Pointers - NeetCode', videoDuration: '18:42', problems: [
+                            { id: 'product-except', title: 'Product of Array Except Self', difficulty: 'medium', leetcodeId: 238, leetcodeUrl: 'https://leetcode.com/problems/product-of-array-except-self/', patterns: ['array', 'prefix-sum'] },
+                            { id: 'encode-decode', title: 'Encode and Decode Strings', difficulty: 'medium', leetcodeId: 271, leetcodeUrl: 'https://leetcode.com/problems/encode-and-decode-strings/', patterns: ['string'] }
+                        ]
+                    }
+                ]
+            },
+            { dayNumber: 6, title: 'Re-solves & Flashcards', goals: ['Re-solve 4 problems', 'Create pattern flashcards'], topics: [], isLightDay: true },
+            { dayNumber: 7, title: 'Rest Day', goals: ['Full rest', 'Exercise', 'Sleep'], topics: [], isRestDay: true }
+        ],
+        isBossWeek: false
+    },
 
-// PHASE A - Week 2
-{
-    weekNumber: 2,
+    // PHASE A - Week 2
+    {
+        weekNumber: 2,
         title: 'Sliding Window, Strings, Stack',
-            phase: 'phase-a',
-                focus: 'Sliding window templates (fixed & variable), string parsing, monotonic stack',
-                    dailyGoal: 'Master sliding window and stack patterns',
-                        problemsPerDay: '3-4',
-                            deliverables: ['8-12 problems + flashcards for sliding-window variants'],
-                                days: [
-                                    {
-                                        dayNumber: 1, title: 'Fixed Sliding Window', goals: ['Fixed-size window template', 'Analyze time/space complexity', '3 problems'], topics: [
-                                            {
-                                                id: 'sliding-window-fixed', title: 'Fixed Sliding Window', description: 'Window of constant size', videoUrl: VIDEOS.slidingWindow, videoTitle: 'Sliding Window - NeetCode', videoDuration: '21:15', problems: [
-                                                    { id: 'max-avg-subarray', title: 'Maximum Average Subarray I', difficulty: 'easy', leetcodeId: 643, leetcodeUrl: 'https://leetcode.com/problems/maximum-average-subarray-i/', patterns: ['sliding-window'] },
-                                                    { id: 'grumpy-owner', title: 'Grumpy Bookstore Owner', difficulty: 'medium', leetcodeId: 1052, leetcodeUrl: 'https://leetcode.com/problems/grumpy-bookstore-owner/', patterns: ['sliding-window'] }
-                                                ]
-                                            }
-                                        ]
-                                    },
-                                    {
-                                        dayNumber: 2, title: 'Variable Sliding Window', goals: ['Variable-size window template', '3 problems'], topics: [
-                                            {
-                                                id: 'sliding-window-var', title: 'Variable Sliding Window', description: 'Window that grows/shrinks', videoUrl: VIDEOS.slidingWindow, videoTitle: 'Sliding Window - NeetCode', videoDuration: '21:15', problems: [
-                                                    { id: 'longest-substring', title: 'Longest Substring Without Repeating Characters', difficulty: 'medium', leetcodeId: 3, leetcodeUrl: 'https://leetcode.com/problems/longest-substring-without-repeating-characters/', patterns: ['sliding-window', 'hashmap'] },
-                                                    { id: 'min-window-substring', title: 'Minimum Window Substring', difficulty: 'hard', leetcodeId: 76, leetcodeUrl: 'https://leetcode.com/problems/minimum-window-substring/', patterns: ['sliding-window', 'hashmap'] }
-                                                ]
-                                            }
-                                        ]
-                                    },
-                                    {
-                                        dayNumber: 3, title: 'String Manipulation', goals: ['String parsing techniques', '3 problems'], topics: [
-                                            {
-                                                id: 'string-patterns', title: 'String Patterns', description: 'Common string manipulation techniques', videoUrl: VIDEOS.slidingWindow, videoTitle: 'Sliding Window - NeetCode', videoDuration: '21:15', problems: [
-                                                    { id: 'longest-repeating', title: 'Longest Repeating Character Replacement', difficulty: 'medium', leetcodeId: 424, leetcodeUrl: 'https://leetcode.com/problems/longest-repeating-character-replacement/', patterns: ['sliding-window'] },
-                                                    { id: 'permutation-string', title: 'Permutation in String', difficulty: 'medium', leetcodeId: 567, leetcodeUrl: 'https://leetcode.com/problems/permutation-in-string/', patterns: ['sliding-window', 'hashmap'] }
-                                                ]
-                                            }
-                                        ]
-                                    },
-                                    {
-                                        dayNumber: 4, title: 'Stack Basics', goals: ['Stack applications', '3 problems'], topics: [
-                                            {
-                                                id: 'stack-basics', title: 'Stack Applications', description: 'Using stacks for expression evaluation', videoUrl: VIDEOS.stackIntro, videoTitle: 'Stacks - CS Dojo', videoDuration: '12:03', problems: [
-                                                    { id: 'valid-parens', title: 'Valid Parentheses', difficulty: 'easy', leetcodeId: 20, leetcodeUrl: 'https://leetcode.com/problems/valid-parentheses/', patterns: ['stack'] },
-                                                    { id: 'eval-rpn', title: 'Evaluate Reverse Polish Notation', difficulty: 'medium', leetcodeId: 150, leetcodeUrl: 'https://leetcode.com/problems/evaluate-reverse-polish-notation/', patterns: ['stack'] },
-                                                    { id: 'daily-temps', title: 'Daily Temperatures', difficulty: 'medium', leetcodeId: 739, leetcodeUrl: 'https://leetcode.com/problems/daily-temperatures/', patterns: ['monotonic-stack'] }
-                                                ]
-                                            }
-                                        ]
-                                    },
-                                    {
-                                        dayNumber: 5, title: 'Monotonic Stack', goals: ['Monotonic stack pattern', 'Timed practice'], topics: [
-                                            {
-                                                id: 'monotonic-stack', title: 'Monotonic Stack', description: 'Maintaining sorted order in a stack', videoUrl: VIDEOS.monotonicStack, videoTitle: 'Monotonic Stack - NeetCode', videoDuration: '17:32', problems: [
-                                                    { id: 'next-greater', title: 'Next Greater Element I', difficulty: 'easy', leetcodeId: 496, leetcodeUrl: 'https://leetcode.com/problems/next-greater-element-i/', patterns: ['monotonic-stack'] },
-                                                    { id: 'largest-rectangle', title: 'Largest Rectangle in Histogram', difficulty: 'hard', leetcodeId: 84, leetcodeUrl: 'https://leetcode.com/problems/largest-rectangle-in-histogram/', patterns: ['monotonic-stack'] }
-                                                ]
-                                            }
-                                        ]
-                                    },
-                                    { dayNumber: 6, title: 'Re-solves & Review', goals: ['Re-solve weak problems', 'Review patterns'], topics: [], isLightDay: true },
-                                    { dayNumber: 7, title: 'Rest Day', goals: ['Full rest'], topics: [], isRestDay: true }
-                                ]
-},
+        phase: 'phase-a',
+        focus: 'Sliding window templates (fixed & variable), string parsing, monotonic stack',
+        dailyGoal: 'Master sliding window and stack patterns',
+        problemsPerDay: '3-4',
+        deliverables: ['8-12 problems + flashcards for sliding-window variants'],
+        days: [
+            {
+                dayNumber: 1, title: 'Fixed Sliding Window', goals: ['Fixed-size window template', 'Analyze time/space complexity', '3 problems'], topics: [
+                    {
+                        id: 'sliding-window-fixed', title: 'Fixed Sliding Window', description: 'Window of constant size', videoUrl: VIDEOS.slidingWindow, videoTitle: 'Sliding Window - NeetCode', videoDuration: '21:15', problems: [
+                            { id: 'max-avg-subarray', title: 'Maximum Average Subarray I', difficulty: 'easy', leetcodeId: 643, leetcodeUrl: 'https://leetcode.com/problems/maximum-average-subarray-i/', patterns: ['sliding-window'] },
+                            { id: 'grumpy-owner', title: 'Grumpy Bookstore Owner', difficulty: 'medium', leetcodeId: 1052, leetcodeUrl: 'https://leetcode.com/problems/grumpy-bookstore-owner/', patterns: ['sliding-window'] }
+                        ]
+                    }
+                ]
+            },
+            {
+                dayNumber: 2, title: 'Variable Sliding Window', goals: ['Variable-size window template', '3 problems'], topics: [
+                    {
+                        id: 'sliding-window-var', title: 'Variable Sliding Window', description: 'Window that grows/shrinks', videoUrl: VIDEOS.slidingWindow, videoTitle: 'Sliding Window - NeetCode', videoDuration: '21:15', problems: [
+                            { id: 'longest-substring', title: 'Longest Substring Without Repeating Characters', difficulty: 'medium', leetcodeId: 3, leetcodeUrl: 'https://leetcode.com/problems/longest-substring-without-repeating-characters/', patterns: ['sliding-window', 'hashmap'] },
+                            { id: 'min-window-substring', title: 'Minimum Window Substring', difficulty: 'hard', leetcodeId: 76, leetcodeUrl: 'https://leetcode.com/problems/minimum-window-substring/', patterns: ['sliding-window', 'hashmap'] }
+                        ]
+                    }
+                ]
+            },
+            {
+                dayNumber: 3, title: 'String Manipulation', goals: ['String parsing techniques', '3 problems'], topics: [
+                    {
+                        id: 'string-patterns', title: 'String Patterns', description: 'Common string manipulation techniques', videoUrl: VIDEOS.slidingWindow, videoTitle: 'Sliding Window - NeetCode', videoDuration: '21:15', problems: [
+                            { id: 'longest-repeating', title: 'Longest Repeating Character Replacement', difficulty: 'medium', leetcodeId: 424, leetcodeUrl: 'https://leetcode.com/problems/longest-repeating-character-replacement/', patterns: ['sliding-window'] },
+                            { id: 'permutation-string', title: 'Permutation in String', difficulty: 'medium', leetcodeId: 567, leetcodeUrl: 'https://leetcode.com/problems/permutation-in-string/', patterns: ['sliding-window', 'hashmap'] }
+                        ]
+                    }
+                ]
+            },
+            {
+                dayNumber: 4, title: 'Stack Basics', goals: ['Stack applications', '3 problems'], topics: [
+                    {
+                        id: 'stack-basics', title: 'Stack Applications', description: 'Using stacks for expression evaluation', videoUrl: VIDEOS.stackIntro, videoTitle: 'Stacks - CS Dojo', videoDuration: '12:03', problems: [
+                            { id: 'valid-parens', title: 'Valid Parentheses', difficulty: 'easy', leetcodeId: 20, leetcodeUrl: 'https://leetcode.com/problems/valid-parentheses/', patterns: ['stack'] },
+                            { id: 'eval-rpn', title: 'Evaluate Reverse Polish Notation', difficulty: 'medium', leetcodeId: 150, leetcodeUrl: 'https://leetcode.com/problems/evaluate-reverse-polish-notation/', patterns: ['stack'] },
+                            { id: 'daily-temps', title: 'Daily Temperatures', difficulty: 'medium', leetcodeId: 739, leetcodeUrl: 'https://leetcode.com/problems/daily-temperatures/', patterns: ['monotonic-stack'] }
+                        ]
+                    }
+                ]
+            },
+            {
+                dayNumber: 5, title: 'Monotonic Stack', goals: ['Monotonic stack pattern', 'Timed practice'], topics: [
+                    {
+                        id: 'monotonic-stack', title: 'Monotonic Stack', description: 'Maintaining sorted order in a stack', videoUrl: VIDEOS.monotonicStack, videoTitle: 'Monotonic Stack - NeetCode', videoDuration: '17:32', problems: [
+                            { id: 'next-greater', title: 'Next Greater Element I', difficulty: 'easy', leetcodeId: 496, leetcodeUrl: 'https://leetcode.com/problems/next-greater-element-i/', patterns: ['monotonic-stack'] },
+                            { id: 'largest-rectangle', title: 'Largest Rectangle in Histogram', difficulty: 'hard', leetcodeId: 84, leetcodeUrl: 'https://leetcode.com/problems/largest-rectangle-in-histogram/', patterns: ['monotonic-stack'] }
+                        ]
+                    }
+                ]
+            },
+            { dayNumber: 6, title: 'Re-solves & Review', goals: ['Re-solve weak problems', 'Review patterns'], topics: [], isLightDay: true },
+            { dayNumber: 7, title: 'Rest Day', goals: ['Full rest'], topics: [], isRestDay: true }
+        ]
+    },
 
-// PHASE A - Week 3
-{
-    weekNumber: 3,
+    // PHASE A - Week 3
+    {
+        weekNumber: 3,
         title: 'Linked Lists, Recursion, Fast/Slow Pointers',
-            phase: 'phase-a',
-                focus: 'Code linked-list operations from scratch; build recursion base-case instincts',
-                    dailyGoal: 'Master linked list manipulation and recursion',
-                        problemsPerDay: '3 (mix Easy→Medium)',
-                            deliverables: ['Implement reverse, merge, and detect-cycle templates', '8-10 problems solved'],
-                                days: [
-                                    {
-                                        dayNumber: 1, title: 'Linked List Manipulation', goals: ['Reverse linked list', 'Merge operations', 'Analyze time/space complexity'], topics: [
-                                            {
-                                                id: 'll-intro', title: 'Linked Lists 101', description: 'Nodes, pointers, and memory layout',
-                                                resources: [
-                                                    { id: 'res-ll-1', title: 'Linked List Theory (William Fiset)', url: VIDEOS.linkedListTheory, type: 'concept', duration: '15:00' },
-                                                    { id: 'res-ll-2', title: 'Reversing a List (NeetCode)', url: VIDEOS.linkedListIntro, type: 'guide', duration: '10:00' }
-                                                ],
-                                                problems: [
-                                                    { id: 'reverse-ll-2', title: 'Reverse Linked List', difficulty: 'easy', leetcodeId: 206, leetcodeUrl: 'https://leetcode.com/problems/reverse-linked-list/', patterns: ['linked-list'] },
-                                                    { id: 'merge-lists', title: 'Merge Two Sorted Lists', difficulty: 'easy', leetcodeId: 21, leetcodeUrl: 'https://leetcode.com/problems/merge-two-sorted-lists/', patterns: ['linked-list'] },
-                                                    { id: 'reorder-list', title: 'Reorder List', difficulty: 'medium', leetcodeId: 143, leetcodeUrl: 'https://leetcode.com/problems/reorder-list/', patterns: ['linked-list', 'two-pointers'] }
-                                                ]
-                                            }
-                                        ]
-                                    },
-                                    {
-                                        dayNumber: 2, title: 'Fast/Slow Pointers', goals: ['Cycle detection', 'Finding middle'], topics: [
-                                            {
-                                                id: 'fast-slow', title: 'Fast/Slow Pointers', description: 'Two pointers at different speeds', videoUrl: VIDEOS.fastSlowPointers, videoTitle: 'Floyd\'s Cycle Detection - NeetCode', videoDuration: '11:32', problems: [
-                                                    { id: 'll-cycle-2', title: 'Linked List Cycle II', difficulty: 'medium', leetcodeId: 142, leetcodeUrl: 'https://leetcode.com/problems/linked-list-cycle-ii/', patterns: ['linked-list', 'two-pointers'] },
-                                                    { id: 'happy-number', title: 'Happy Number', difficulty: 'easy', leetcodeId: 202, leetcodeUrl: 'https://leetcode.com/problems/happy-number/', patterns: ['fast-slow', 'hashset'] },
-                                                    { id: 'find-duplicate', title: 'Find the Duplicate Number', difficulty: 'medium', leetcodeId: 287, leetcodeUrl: 'https://leetcode.com/problems/find-the-duplicate-number/', patterns: ['fast-slow'] }
-                                                ]
-                                            }
-                                        ]
-                                    },
-                                    {
-                                        dayNumber: 3, title: 'Recursion Deep Dive', goals: ['Build base-case instincts', 'Recursive thinking'], topics: [
-                                            {
-                                                id: 'recursion-deep', title: 'Recursion Patterns', description: 'Building intuition for recursive solutions', videoUrl: VIDEOS.recursionIntro, videoTitle: 'Recursion - Reducible', videoDuration: '21:03', problems: [
-                                                    { id: 'reverse-ll-recursive', title: 'Reverse Linked List (Recursive)', difficulty: 'easy', leetcodeId: 206, leetcodeUrl: 'https://leetcode.com/problems/reverse-linked-list/', patterns: ['recursion', 'linked-list'] },
-                                                    { id: 'merge-k-lists', title: 'Merge k Sorted Lists', difficulty: 'hard', leetcodeId: 23, leetcodeUrl: 'https://leetcode.com/problems/merge-k-sorted-lists/', patterns: ['linked-list', 'divide-conquer'] }
-                                                ]
-                                            }
-                                        ]
-                                    },
-                                    {
-                                        dayNumber: 4, title: 'Advanced Linked List', goals: ['Complex linked list problems'], topics: [
-                                            {
-                                                id: 'll-advanced', title: 'Advanced Linked List', description: 'Complex operations on linked lists', videoUrl: VIDEOS.linkedListIntro, videoTitle: 'Linked Lists - CS Dojo', videoDuration: '14:27', problems: [
-                                                    { id: 'remove-nth', title: 'Remove Nth Node From End of List', difficulty: 'medium', leetcodeId: 19, leetcodeUrl: 'https://leetcode.com/problems/remove-nth-node-from-end-of-list/', patterns: ['linked-list', 'two-pointers'] },
-                                                    { id: 'copy-random', title: 'Copy List with Random Pointer', difficulty: 'medium', leetcodeId: 138, leetcodeUrl: 'https://leetcode.com/problems/copy-list-with-random-pointer/', patterns: ['linked-list', 'hashmap'] },
-                                                    { id: 'add-two-numbers', title: 'Add Two Numbers', difficulty: 'medium', leetcodeId: 2, leetcodeUrl: 'https://leetcode.com/problems/add-two-numbers/', patterns: ['linked-list'] }
-                                                ]
-                                            }
-                                        ]
-                                    },
-                                    { dayNumber: 5, title: 'Mixed Practice + First Mock', goals: ['First mock interview', 'Timed practice'], topics: [], isLightDay: true },
-                                    { dayNumber: 6, title: 'Re-solves', goals: ['Re-solve weak problems'], topics: [], isLightDay: true },
-                                    { dayNumber: 7, title: 'Rest Day', goals: ['Full rest'], topics: [], isRestDay: true }
-                                ]
-},
+        phase: 'phase-a',
+        focus: 'Code linked-list operations from scratch; build recursion base-case instincts',
+        dailyGoal: 'Master linked list manipulation and recursion',
+        problemsPerDay: '3 (mix Easy→Medium)',
+        deliverables: ['Implement reverse, merge, and detect-cycle templates', '8-10 problems solved'],
+        days: [
+            {
+                dayNumber: 1, title: 'Linked List Manipulation', goals: ['Reverse linked list', 'Merge operations', 'Analyze time/space complexity'], topics: [
+                    {
+                        id: 'll-intro', title: 'Linked Lists 101', description: 'Nodes, pointers, and memory layout',
+                        resources: [
+                            { id: 'res-ll-1', title: 'Linked List Theory (William Fiset)', url: VIDEOS.linkedListTheory, type: 'concept', duration: '15:00' },
+                            { id: 'res-ll-2', title: 'Reversing a List (NeetCode)', url: VIDEOS.linkedListIntro, type: 'guide', duration: '10:00' }
+                        ],
+                        problems: [
+                            { id: 'reverse-ll-2', title: 'Reverse Linked List', difficulty: 'easy', leetcodeId: 206, leetcodeUrl: 'https://leetcode.com/problems/reverse-linked-list/', patterns: ['linked-list'] },
+                            { id: 'merge-lists', title: 'Merge Two Sorted Lists', difficulty: 'easy', leetcodeId: 21, leetcodeUrl: 'https://leetcode.com/problems/merge-two-sorted-lists/', patterns: ['linked-list'] },
+                            { id: 'reorder-list', title: 'Reorder List', difficulty: 'medium', leetcodeId: 143, leetcodeUrl: 'https://leetcode.com/problems/reorder-list/', patterns: ['linked-list', 'two-pointers'] }
+                        ]
+                    }
+                ]
+            },
+            {
+                dayNumber: 2, title: 'Fast/Slow Pointers', goals: ['Cycle detection', 'Finding middle'], topics: [
+                    {
+                        id: 'fast-slow', title: 'Fast/Slow Pointers', description: 'Two pointers at different speeds', videoUrl: VIDEOS.fastSlowPointers, videoTitle: 'Floyd\'s Cycle Detection - NeetCode', videoDuration: '11:32', problems: [
+                            { id: 'll-cycle-2', title: 'Linked List Cycle II', difficulty: 'medium', leetcodeId: 142, leetcodeUrl: 'https://leetcode.com/problems/linked-list-cycle-ii/', patterns: ['linked-list', 'two-pointers'] },
+                            { id: 'happy-number', title: 'Happy Number', difficulty: 'easy', leetcodeId: 202, leetcodeUrl: 'https://leetcode.com/problems/happy-number/', patterns: ['fast-slow', 'hashset'] },
+                            { id: 'find-duplicate', title: 'Find the Duplicate Number', difficulty: 'medium', leetcodeId: 287, leetcodeUrl: 'https://leetcode.com/problems/find-the-duplicate-number/', patterns: ['fast-slow'] }
+                        ]
+                    }
+                ]
+            },
+            {
+                dayNumber: 3, title: 'Recursion Deep Dive', goals: ['Build base-case instincts', 'Recursive thinking'], topics: [
+                    {
+                        id: 'recursion-deep', title: 'Recursion Patterns', description: 'Building intuition for recursive solutions', videoUrl: VIDEOS.recursionIntro, videoTitle: 'Recursion - Reducible', videoDuration: '21:03', problems: [
+                            { id: 'reverse-ll-recursive', title: 'Reverse Linked List (Recursive)', difficulty: 'easy', leetcodeId: 206, leetcodeUrl: 'https://leetcode.com/problems/reverse-linked-list/', patterns: ['recursion', 'linked-list'] },
+                            { id: 'merge-k-lists', title: 'Merge k Sorted Lists', difficulty: 'hard', leetcodeId: 23, leetcodeUrl: 'https://leetcode.com/problems/merge-k-sorted-lists/', patterns: ['linked-list', 'divide-conquer'] }
+                        ]
+                    }
+                ]
+            },
+            {
+                dayNumber: 4, title: 'Advanced Linked List', goals: ['Complex linked list problems'], topics: [
+                    {
+                        id: 'll-advanced', title: 'Advanced Linked List', description: 'Complex operations on linked lists', videoUrl: VIDEOS.linkedListIntro, videoTitle: 'Linked Lists - CS Dojo', videoDuration: '14:27', problems: [
+                            { id: 'remove-nth', title: 'Remove Nth Node From End of List', difficulty: 'medium', leetcodeId: 19, leetcodeUrl: 'https://leetcode.com/problems/remove-nth-node-from-end-of-list/', patterns: ['linked-list', 'two-pointers'] },
+                            { id: 'copy-random', title: 'Copy List with Random Pointer', difficulty: 'medium', leetcodeId: 138, leetcodeUrl: 'https://leetcode.com/problems/copy-list-with-random-pointer/', patterns: ['linked-list', 'hashmap'] },
+                            { id: 'add-two-numbers', title: 'Add Two Numbers', difficulty: 'medium', leetcodeId: 2, leetcodeUrl: 'https://leetcode.com/problems/add-two-numbers/', patterns: ['linked-list'] }
+                        ]
+                    }
+                ]
+            },
+            { dayNumber: 5, title: 'Mixed Practice + First Mock', goals: ['First mock interview', 'Timed practice'], topics: [], isLightDay: true },
+            { dayNumber: 6, title: 'Re-solves', goals: ['Re-solve weak problems'], topics: [], isLightDay: true },
+            { dayNumber: 7, title: 'Rest Day', goals: ['Full rest'], topics: [], isRestDay: true }
+        ]
+    },
 
-// PHASE A - Week 4
-{
-    weekNumber: 4,
+    // PHASE A - Week 4
+    {
+        weekNumber: 4,
         title: 'Trees (DFS/BFS), First Month Checkpoint',
-            phase: 'phase-a',
-                focus: 'DFS and BFS templates on binary trees (recursive & iterative)',
-                    dailyGoal: 'Master tree traversals and simple tree DP',
-                        problemsPerDay: '3',
-                            deliverables: ['90-minute checkpoint simulation', 'Full KPI review'],
-                                days: [
-                                    {
-                                        dayNumber: 1, title: 'Tree DFS', goals: ['DFS recursive and iterative', 'Analyze time/space complexity', '3 problems'], topics: [
-                                            {
-                                                id: 'tree-intro', title: 'Binary Trees', description: 'Recursive structure & traversals',
-                                                resources: [
-                                                    { id: 'res-tr-1', title: 'Tree Data Structure (William Fiset)', url: VIDEOS.treeTheory, type: 'concept', duration: '15:00' },
-                                                    { id: 'res-tr-2', title: 'Invert Binary Tree (NeetCode)', url: VIDEOS.binaryTreeIntro, type: 'guide', duration: '12:00' }
-                                                ],
-                                                problems: [
-                                                    { id: 'invert-tree', title: 'Invert Binary Tree', difficulty: 'easy', leetcodeId: 226, leetcodeUrl: 'https://leetcode.com/problems/invert-binary-tree/', patterns: ['tree', 'recursion'] },
-                                                    { id: 'same-tree', title: 'Same Tree', difficulty: 'easy', leetcodeId: 100, leetcodeUrl: 'https://leetcode.com/problems/same-tree/', patterns: ['tree', 'dfs'] },
-                                                    { id: 'subtree', title: 'Subtree of Another Tree', difficulty: 'easy', leetcodeId: 572, leetcodeUrl: 'https://leetcode.com/problems/subtree-of-another-tree/', patterns: ['tree', 'dfs'] }
-                                                ]
-                                            }
-                                        ]
-                                    },
-                                    {
-                                        dayNumber: 2, title: 'Tree BFS', goals: ['BFS level-order traversal', '3 problems'], topics: [
-                                            {
-                                                id: 'tree-bfs', title: 'Tree BFS', description: 'Breadth-first search, level-order traversal', videoUrl: VIDEOS.treeBFS, videoTitle: 'Tree BFS - NeetCode', videoDuration: '12:15', problems: [
-                                                    { id: 'level-order', title: 'Binary Tree Level Order Traversal', difficulty: 'medium', leetcodeId: 102, leetcodeUrl: 'https://leetcode.com/problems/binary-tree-level-order-traversal/', patterns: ['tree', 'bfs'] },
-                                                    { id: 'right-side', title: 'Binary Tree Right Side View', difficulty: 'medium', leetcodeId: 199, leetcodeUrl: 'https://leetcode.com/problems/binary-tree-right-side-view/', patterns: ['tree', 'bfs'] },
-                                                    { id: 'zigzag', title: 'Binary Tree Zigzag Level Order Traversal', difficulty: 'medium', leetcodeId: 103, leetcodeUrl: 'https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal/', patterns: ['tree', 'bfs'] }
-                                                ]
-                                            }
-                                        ]
-                                    },
-                                    {
-                                        dayNumber: 3, title: 'Tree Properties', goals: ['Tree diameter, balance, paths'], topics: [
-                                            {
-                                                id: 'tree-props', title: 'Tree Properties', description: 'Computing tree metrics', videoUrl: VIDEOS.binaryTreeIntro, videoTitle: 'Binary Trees - NeetCode', videoDuration: '15:21', problems: [
-                                                    { id: 'diameter', title: 'Diameter of Binary Tree', difficulty: 'easy', leetcodeId: 543, leetcodeUrl: 'https://leetcode.com/problems/diameter-of-binary-tree/', patterns: ['tree', 'dfs'] },
-                                                    { id: 'balanced', title: 'Balanced Binary Tree', difficulty: 'easy', leetcodeId: 110, leetcodeUrl: 'https://leetcode.com/problems/balanced-binary-tree/', patterns: ['tree', 'dfs'] },
-                                                    { id: 'max-path-sum', title: 'Binary Tree Maximum Path Sum', difficulty: 'hard', leetcodeId: 124, leetcodeUrl: 'https://leetcode.com/problems/binary-tree-maximum-path-sum/', patterns: ['tree', 'dfs'] }
-                                                ]
-                                            }
-                                        ]
-                                    },
-                                    {
-                                        dayNumber: 4, title: 'Tree Construction', goals: ['Build trees from traversals'], topics: [
-                                            {
-                                                id: 'tree-construct', title: 'Tree Construction', description: 'Building trees from traversal sequences', videoUrl: VIDEOS.binaryTreeIntro, videoTitle: 'Binary Trees - NeetCode', videoDuration: '15:21', problems: [
-                                                    { id: 'construct-preorder', title: 'Construct Binary Tree from Preorder and Inorder Traversal', difficulty: 'medium', leetcodeId: 105, leetcodeUrl: 'https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/', patterns: ['tree', 'recursion'] },
-                                                    { id: 'serialize', title: 'Serialize and Deserialize Binary Tree', difficulty: 'hard', leetcodeId: 297, leetcodeUrl: 'https://leetcode.com/problems/serialize-and-deserialize-binary-tree/', patterns: ['tree', 'bfs', 'dfs'] }
-                                                ]
-                                            }
-                                        ]
-                                    },
-                                    { dayNumber: 5, title: '🏆 First Month Checkpoint', goals: ['90-min simulation: 1 medium tree + 1 mixed', 'Full KPI review'], topics: [] },
-                                    { dayNumber: 6, title: 'Review & Postmortem', goals: ['Analyze checkpoint', 'Plan next phase'], topics: [], isLightDay: true },
-                                    { dayNumber: 7, title: 'Rest Day', goals: ['Celebrate completing Phase A!'], topics: [], isRestDay: true }
-                                ],
-                                    isBossWeek: true
-},
+        phase: 'phase-a',
+        focus: 'DFS and BFS templates on binary trees (recursive & iterative)',
+        dailyGoal: 'Master tree traversals and simple tree DP',
+        problemsPerDay: '3',
+        deliverables: ['90-minute checkpoint simulation', 'Full KPI review'],
+        days: [
+            {
+                dayNumber: 1, title: 'Tree DFS', goals: ['DFS recursive and iterative', 'Analyze time/space complexity', '3 problems'], topics: [
+                    {
+                        id: 'tree-intro', title: 'Binary Trees', description: 'Recursive structure & traversals',
+                        resources: [
+                            { id: 'res-tr-1', title: 'Tree Data Structure (William Fiset)', url: VIDEOS.treeTheory, type: 'concept', duration: '15:00' },
+                            { id: 'res-tr-2', title: 'Invert Binary Tree (NeetCode)', url: VIDEOS.binaryTreeIntro, type: 'guide', duration: '12:00' }
+                        ],
+                        problems: [
+                            { id: 'invert-tree', title: 'Invert Binary Tree', difficulty: 'easy', leetcodeId: 226, leetcodeUrl: 'https://leetcode.com/problems/invert-binary-tree/', patterns: ['tree', 'recursion'] },
+                            { id: 'same-tree', title: 'Same Tree', difficulty: 'easy', leetcodeId: 100, leetcodeUrl: 'https://leetcode.com/problems/same-tree/', patterns: ['tree', 'dfs'] },
+                            { id: 'subtree', title: 'Subtree of Another Tree', difficulty: 'easy', leetcodeId: 572, leetcodeUrl: 'https://leetcode.com/problems/subtree-of-another-tree/', patterns: ['tree', 'dfs'] }
+                        ]
+                    }
+                ]
+            },
+            {
+                dayNumber: 2, title: 'Tree BFS', goals: ['BFS level-order traversal', '3 problems'], topics: [
+                    {
+                        id: 'tree-bfs', title: 'Tree BFS', description: 'Breadth-first search, level-order traversal', videoUrl: VIDEOS.treeBFS, videoTitle: 'Tree BFS - NeetCode', videoDuration: '12:15', problems: [
+                            { id: 'level-order', title: 'Binary Tree Level Order Traversal', difficulty: 'medium', leetcodeId: 102, leetcodeUrl: 'https://leetcode.com/problems/binary-tree-level-order-traversal/', patterns: ['tree', 'bfs'] },
+                            { id: 'right-side', title: 'Binary Tree Right Side View', difficulty: 'medium', leetcodeId: 199, leetcodeUrl: 'https://leetcode.com/problems/binary-tree-right-side-view/', patterns: ['tree', 'bfs'] },
+                            { id: 'zigzag', title: 'Binary Tree Zigzag Level Order Traversal', difficulty: 'medium', leetcodeId: 103, leetcodeUrl: 'https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal/', patterns: ['tree', 'bfs'] }
+                        ]
+                    }
+                ]
+            },
+            {
+                dayNumber: 3, title: 'Tree Properties', goals: ['Tree diameter, balance, paths'], topics: [
+                    {
+                        id: 'tree-props', title: 'Tree Properties', description: 'Computing tree metrics', videoUrl: VIDEOS.binaryTreeIntro, videoTitle: 'Binary Trees - NeetCode', videoDuration: '15:21', problems: [
+                            { id: 'diameter', title: 'Diameter of Binary Tree', difficulty: 'easy', leetcodeId: 543, leetcodeUrl: 'https://leetcode.com/problems/diameter-of-binary-tree/', patterns: ['tree', 'dfs'] },
+                            { id: 'balanced', title: 'Balanced Binary Tree', difficulty: 'easy', leetcodeId: 110, leetcodeUrl: 'https://leetcode.com/problems/balanced-binary-tree/', patterns: ['tree', 'dfs'] },
+                            { id: 'max-path-sum', title: 'Binary Tree Maximum Path Sum', difficulty: 'hard', leetcodeId: 124, leetcodeUrl: 'https://leetcode.com/problems/binary-tree-maximum-path-sum/', patterns: ['tree', 'dfs'] }
+                        ]
+                    }
+                ]
+            },
+            {
+                dayNumber: 4, title: 'Tree Construction', goals: ['Build trees from traversals'], topics: [
+                    {
+                        id: 'tree-construct', title: 'Tree Construction', description: 'Building trees from traversal sequences', videoUrl: VIDEOS.binaryTreeIntro, videoTitle: 'Binary Trees - NeetCode', videoDuration: '15:21', problems: [
+                            { id: 'construct-preorder', title: 'Construct Binary Tree from Preorder and Inorder Traversal', difficulty: 'medium', leetcodeId: 105, leetcodeUrl: 'https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/', patterns: ['tree', 'recursion'] },
+                            { id: 'serialize', title: 'Serialize and Deserialize Binary Tree', difficulty: 'hard', leetcodeId: 297, leetcodeUrl: 'https://leetcode.com/problems/serialize-and-deserialize-binary-tree/', patterns: ['tree', 'bfs', 'dfs'] }
+                        ]
+                    }
+                ]
+            },
+            { dayNumber: 5, title: '🏆 First Month Checkpoint', goals: ['90-min simulation: 1 medium tree + 1 mixed', 'Full KPI review'], topics: [] },
+            { dayNumber: 6, title: 'Review & Postmortem', goals: ['Analyze checkpoint', 'Plan next phase'], topics: [], isLightDay: true },
+            { dayNumber: 7, title: 'Rest Day', goals: ['Celebrate completing Phase A!'], topics: [], isRestDay: true }
+        ],
+        isBossWeek: true
+    },
 
     // Generate remaining weeks (5-24) with structure
     ...generateRemainingWeeks()
